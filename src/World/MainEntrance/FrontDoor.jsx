@@ -4,7 +4,6 @@ export default function FrontDoor ()
 {
 
     const doorModel = useFBX('/models/FrontDoor/FrontDoor.fbx')
-    console.log(doorModel)
     return <>
             <primitive 
                 castShadow 

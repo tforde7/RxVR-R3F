@@ -11,6 +11,8 @@ import { useRef } from "react";
 import * as THREE from 'three'
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import MainEntrance from "./MainEntrance/MainEntrance.jsx";
+import { Physics } from "@react-three/rapier";
+import Player from "./Player/Player.jsx";
 
 
 
@@ -29,7 +31,10 @@ export default function World ()
         <directionalLight ref={directionalLight} castShadow intensity={4.5} position={[1, 2, 3]}></directionalLight>
         <ambientLight intensity={1.5}></ambientLight>
         <Sky></Sky>
-        <MainEntrance></MainEntrance>
+        <Physics debug >
+            <Player></Player>
+            <MainEntrance></MainEntrance>  
+        </Physics>
 
     </>
 }

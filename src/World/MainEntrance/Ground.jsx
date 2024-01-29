@@ -1,4 +1,7 @@
+import { useHelper } from "@react-three/drei";
 import {useLoader} from "@react-three/fiber";
+import { RigidBody } from "@react-three/rapier";
+import { useRef } from "react";
 import * as THREE from "three";
 
 export default function Ground ()
@@ -38,16 +41,16 @@ export default function Ground ()
 
 
     return <>
+    <RigidBody type="fixed">
         <mesh receiveShadow rotation-x={-Math.PI * 0.5}>
-            <boxGeometry args={[30, 30, 0.2]}></boxGeometry>
+            <boxGeometry args={[30, 30, 1]}></boxGeometry>
             <meshStandardMaterial
                 map={groundColorTexture}
                 normalMap={groundNormalTexture} 
                 aoMap={groundAOTexture}
-                roughnessMap={groundRoughnessTexture}
-                displacementMap={groundHeightTexture}>
-
-                </meshStandardMaterial>
+                roughnessMap={groundRoughnessTexture}>
+            </meshStandardMaterial>
         </mesh>
+    </RigidBody>
     </>
 }
