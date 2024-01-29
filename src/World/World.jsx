@@ -3,19 +3,33 @@ import BrickWall from "./MainEntrance/BrickWall.jsx";
 import GlassWall from "./MainEntrance/GlassWall.jsx";
 import FrontDoor from "./MainEntrance/FrontDoor.jsx";
 import TourGuide from "./MainEntrance/TourGuide.jsx";
-import {extend, useThree} from "@react-three/fiber";
-import {OrbitControls} from "@react-three/drei";
+import {extend, useLoader, useThree} from "@react-three/fiber";
+import {FirstPersonControls, OrbitControls, Sky, SoftShadows, useHelper} from "@react-three/drei";
+import { useControls } from "leva";
+import { Perf } from "r3f-perf";
+import { useRef } from "react";
+import * as THREE from 'three'
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import MainEntrance from "./MainEntrance/MainEntrance.jsx";
+
+
+
 export default function World ()
 {
-    return <>
 
+    const directionalLight = useRef()
+    // useHelper(directionalLight, THREE.DirectionalLightHelper, 1)
+
+
+    return <>
+        <SoftShadows size={25} samples={10} focus={0} ></SoftShadows>
+        <Perf position="top-left"></Perf>
+        {/* <FirstPersonControls></FirstPersonControls> */}
         <OrbitControls></OrbitControls>
-        <directionalLight intensity={4.5} position={[1, 2, 3]}></directionalLight>
+        <directionalLight ref={directionalLight} castShadow intensity={4.5} position={[1, 2, 3]}></directionalLight>
         <ambientLight intensity={1.5}></ambientLight>
-        <Ground></Ground>
-        <BrickWall></BrickWall>
-        <GlassWall></GlassWall>
-        <FrontDoor></FrontDoor>
-        <TourGuide></TourGuide>
+        <Sky></Sky>
+        <MainEntrance></MainEntrance>
+
     </>
 }
