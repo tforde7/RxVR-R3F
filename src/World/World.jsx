@@ -19,12 +19,13 @@ export default function World ()
     const {camera} = useThree()
     useEffect(() => {camera.position.set(0,3,15)}, [])
 
-    const {cameraTarget} = useControls({
+    const {cameraTarget, orbitControlsEnabled} = useControls({
         cameraTarget: {
             value: {x: 0, y: 0},
             step: 0.1,
             joystick: 'invertY'
-        }
+        },
+        orbitControlsEnabled: true
     })
 
     const orbitControls = useRef()
@@ -39,7 +40,8 @@ export default function World ()
         {/* <FirstPersonControls></FirstPersonControls> */}
         <OrbitControls
             ref={orbitControls} 
-            target={[cameraTarget.x, cameraTarget.y, 0]} >
+            target={[cameraTarget.x, cameraTarget.y, 0]}
+            enabled={orbitControlsEnabled} >
         </OrbitControls>
         <directionalLight ref={directionalLight} castShadow intensity={4.5} position={[1, 2, 3]}></directionalLight>
         <ambientLight intensity={1.5}></ambientLight>
