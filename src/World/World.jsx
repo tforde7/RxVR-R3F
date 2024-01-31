@@ -27,11 +27,11 @@ export default function World ()
         <SoftShadows size={25} samples={10} focus={0} ></SoftShadows>
         <Perf position="top-left"></Perf>
         {/* <FirstPersonControls></FirstPersonControls> */}
-        <OrbitControls></OrbitControls>
+        {/*<OrbitControls></OrbitControls>*/}
         <directionalLight ref={directionalLight} castShadow intensity={4.5} position={[1, 2, 3]}></directionalLight>
         <ambientLight intensity={1.5}></ambientLight>
         <Sky></Sky>
-        <Physics debug >
+        <Physics >
             <Player></Player>
             <MainEntrance></MainEntrance>  
         </Physics>
