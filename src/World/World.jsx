@@ -6,7 +6,7 @@ import * as THREE from 'three'
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import MainEntrance from "./MainEntrance/MainEntrance.jsx";
 import { Physics } from "@react-three/rapier";
-// import Player from "./Player/Player.jsx";
+import Player from "./Player/Player.jsx";
 import { useControls } from "leva";
 
 
@@ -46,8 +46,9 @@ export default function World ()
         <directionalLight ref={directionalLight} castShadow intensity={4.5} position={[1, 2, 3]}></directionalLight>
         <ambientLight intensity={1.5}></ambientLight>
         <Sky></Sky>
-        <Physics >
-            {/* <Player></Player> */}
+        <Physics debug gravity={[0,-9.81,0]} >
+
+            { orbitControlsEnabled ? null : <Player></Player>}
             <MainEntrance></MainEntrance>  
         </Physics>
 

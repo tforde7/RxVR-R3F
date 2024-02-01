@@ -13,10 +13,10 @@ root.render(
         <Leva></Leva>
         <KeyboardControls
             map={[
-                { name: "forward", keys: ["ArrowUp", "w", "W"] },
-                { name: "backward", keys: ["ArrowDown", "s", "S"] },
-                { name: "left", keys: ["ArrowLeft", "a", "A"] },
-                { name: "right", keys: ["ArrowRight", "d", "D"] },
+                { name: "forward", keys: ["ArrowUp", "KeyW"] },
+                { name: "backward", keys: ["ArrowDown", "KeyS"] },
+                { name: "left", keys: ["ArrowLeft", "KeyA"] },
+                { name: "right", keys: ["ArrowRight", "KeyD"] },
                 { name: "jump", keys: ["Space"] },
             ]} >
             <Canvas shadows>
