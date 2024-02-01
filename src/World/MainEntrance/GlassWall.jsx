@@ -1,4 +1,5 @@
 import { useLoader } from "@react-three/fiber"
+import { RigidBody } from "@react-three/rapier"
 import * as THREE from 'three'
 
 export default function GlassWall ()
@@ -51,12 +52,12 @@ export default function GlassWall ()
 
     
     return <>
+    <RigidBody type="fixed">
         <mesh position-z={-15} position-y={15}>
             <boxGeometry args={[30, 30, 0.2]}></boxGeometry>
             <meshStandardMaterial
                 map={glassColorTexture}
                 normalMap={glassNormalTexture}
-                displacementMap={glassHeightTexture}
                 aoMap={glassAOTexture}
                 roughnessMap={glassRoughnessTexture}
                 metalnessMap={glassMetalnessTexture}
@@ -66,5 +67,8 @@ export default function GlassWall ()
             >
             </meshStandardMaterial>
         </mesh>
+
+    </RigidBody>
+
     </>
 }

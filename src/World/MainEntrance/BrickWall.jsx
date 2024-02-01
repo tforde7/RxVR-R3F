@@ -1,4 +1,5 @@
 import { useLoader } from "@react-three/fiber"
+import { RigidBody } from "@react-three/rapier"
 import * as THREE from 'three'
 
 export default function BrickWall ()
@@ -14,13 +15,16 @@ export default function BrickWall ()
     brickColorTexture.wrapT = THREE.RepeatWrapping
     brickNormalTexture.wrapT = THREE.RepeatWrapping
     return <>
-        <mesh position-x={-15} position-y={15} rotation-y={Math.PI * 0.5}>
-            <boxGeometry args={[30, 30, 0.2]}></boxGeometry>
-            <meshStandardMaterial
-                map={brickColorTexture}
-                normalMap={brickNormalTexture}>
-                
-            </meshStandardMaterial>
-        </mesh>
+        <RigidBody type="fixed">
+            <mesh position-x={-15} position-y={15} rotation-y={Math.PI * 0.5}>
+                <boxGeometry args={[30, 30, 0.2]}></boxGeometry>
+                <meshStandardMaterial
+                    map={brickColorTexture}
+                    normalMap={brickNormalTexture}>
+                    
+                </meshStandardMaterial>
+            </mesh>
+        </RigidBody>
+
     </>
 }
