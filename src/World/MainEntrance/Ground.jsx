@@ -7,37 +7,44 @@ import * as THREE from "three";
 export default function Ground ()
 {
     const [
-        groundColorTexture,
-        groundNormalTexture,
-        groundHeightTexture,
-        groundAOTexture,
-        groundRoughnessTexture
+        diffuseMapTexture,
+        aoMapTexture,
+        armMapTexture,
+        displacementMapTexture,
+        normalMapDXTexture,
+        roughnessMapTexture
     ] = useLoader(THREE.TextureLoader, [
-        '/textures/pavement/color.jpg',
-        '/textures/pavement/normal.jpg',
-        '/textures/pavement/height.jpg',
-        '/textures/pavement/ao.jpg',
-        '/textures/pavement/roughness.jpg'
+        '/textures/block_pavement/brick_floor_003_diffuse_4k.jpg',
+        '/textures/block_pavement/brick_floor_003_ao_4k.jpg',
+        '/textures/block_pavement/brick_floor_003_arm_4k.jpg',
+        '/textures/block_pavement/brick_floor_003_displacement_4k.jpg',
+        '/textures/block_pavement/brick_floor_003_nor_dx_4k.jpg',
+        '/textures/block_pavement/brick_floor_003_rough_4k.jpg'
     ])
-    groundColorTexture.repeat.set(3, 3)
-    groundColorTexture.wrapS = THREE.RepeatWrapping
-    groundColorTexture.wrapT = THREE.RepeatWrapping
+    aoMapTexture.repeat.set(3, 3)
+    aoMapTexture.wrapS = THREE.RepeatWrapping
+    aoMapTexture.wrapT = THREE.RepeatWrapping
 
-    groundNormalTexture.repeat.set(3, 3)
-    groundNormalTexture.wrapS = THREE.RepeatWrapping
-    groundNormalTexture.wrapT = THREE.RepeatWrapping
+    armMapTexture.repeat.set(3, 3)
+    armMapTexture.wrapS = THREE.RepeatWrapping
+    armMapTexture.wrapT = THREE.RepeatWrapping
 
-    groundHeightTexture.repeat.set(3, 3)
-    groundHeightTexture.wrapS = THREE.RepeatWrapping
-    groundHeightTexture.wrapT = THREE.RepeatWrapping
+    diffuseMapTexture.repeat.set(3, 3)
+    diffuseMapTexture.wrapS = THREE.RepeatWrapping
+    diffuseMapTexture.wrapT = THREE.RepeatWrapping
 
-    groundAOTexture.repeat.set(3, 3)
-    groundAOTexture.wrapS = THREE.RepeatWrapping
-    groundAOTexture.wrapT = THREE.RepeatWrapping
+    displacementMapTexture.repeat.set(3, 3)
+    displacementMapTexture.wrapS = THREE.RepeatWrapping
+    displacementMapTexture.wrapT = THREE.RepeatWrapping
 
-    groundRoughnessTexture.repeat.set(3, 3)
-    groundRoughnessTexture.wrapS = THREE.RepeatWrapping
-    groundRoughnessTexture.wrapT = THREE.RepeatWrapping
+    normalMapDXTexture.repeat.set(3, 3)
+    normalMapDXTexture.wrapS = THREE.RepeatWrapping
+    normalMapDXTexture.wrapT = THREE.RepeatWrapping
+
+
+    roughnessMapTexture.repeat.set(3, 3)
+    roughnessMapTexture.wrapS = THREE.RepeatWrapping
+    roughnessMapTexture.wrapT = THREE.RepeatWrapping
 
 
     return <>
@@ -45,10 +52,13 @@ export default function Ground ()
         <mesh receiveShadow rotation-x={-Math.PI * 0.5}>
             <boxGeometry args={[30, 30, 1]}></boxGeometry>
             <meshStandardMaterial
-                map={groundColorTexture}
-                normalMap={groundNormalTexture} 
-                aoMap={groundAOTexture}
-                roughnessMap={groundRoughnessTexture}>
+                map = {diffuseMapTexture}
+                aoMap={aoMapTexture}
+                armMap={armMapTexture} 
+                displacementMap={displacementMapTexture}
+                normalDXMap={normalMapDXTexture}
+                roughnessMap={roughnessMapTexture}
+                >
             </meshStandardMaterial>
         </mesh>
     </RigidBody>
