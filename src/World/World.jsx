@@ -8,6 +8,7 @@ import MainEntrance from "./MainEntrance/MainEntrance.jsx";
 import { Physics } from "@react-three/rapier";
 import Player from "./Player/Player.jsx";
 import { useControls } from "leva";
+import GlobalGround from "./GlobalGround.jsx";
 
 
 
@@ -49,7 +50,8 @@ export default function World ()
         <Physics >
 
             { orbitControlsEnabled ? null : <Player></Player>}
-            <MainEntrance></MainEntrance>  
+            {/* <MainEntrance></MainEntrance>   */}
+            <GlobalGround></GlobalGround>
         </Physics>
 
     </>

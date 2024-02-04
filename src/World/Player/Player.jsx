@@ -87,7 +87,7 @@ export default function Player() {
       colliders='ball'
       restitution={ 0.2 }
       friction={1}
-      position={[1,1.5,4]}
+      position={[1,2.5,4]}
       canSleep={false}
       linearDamping={1}
       angularDamping={1}
