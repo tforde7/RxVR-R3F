@@ -10,6 +10,7 @@ import Player from "./Player/Player.jsx";
 import { useControls } from "leva";
 import GlobalGround from "./GlobalGround.jsx";
 import { Buildings } from "./Buildings.jsx";
+import Sign2 from "./Sign2.jsx";
 
 
 
@@ -23,14 +24,14 @@ export default function World ()
 
     const {cameraTarget, orbitControlsEnabled} = useControls({
         cameraTarget: {
-            value: {x: 0, y: 0},
+            value: {x: 0, y: 0, z: 0},
             step: 0.1,
-            joystick: 'invertY'
         },
         orbitControlsEnabled: false
     })
 
     const orbitControls = useRef()
+    console.log(orbitControls.current)
 
     const directionalLight = useRef()
     // useHelper(directionalLight, THREE.DirectionalLightHelper, 1)
@@ -42,8 +43,9 @@ export default function World ()
         {/* <FirstPersonControls></FirstPersonControls> */}
         <OrbitControls
             ref={orbitControls} 
-            target={[cameraTarget.x, cameraTarget.y, -2]}
-            enabled={orbitControlsEnabled} >
+            target={[cameraTarget.x, cameraTarget.y, cameraTarget.z]}
+            enabled={orbitControlsEnabled}
+             >
         </OrbitControls>
         <directionalLight ref={directionalLight} castShadow intensity={4.5} position={[1, 2, 3]}></directionalLight>
         <ambientLight intensity={1.5}></ambientLight>
@@ -54,6 +56,7 @@ export default function World ()
             {/* <MainEntrance></MainEntrance>   */}
             <GlobalGround></GlobalGround>
             <Buildings></Buildings>
+            <Sign2></Sign2>
         </Physics>
 
     </>
