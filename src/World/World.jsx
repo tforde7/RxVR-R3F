@@ -25,7 +25,7 @@ export default function World ()
             step: 0.1,
             joystick: 'invertY'
         },
-        orbitControlsEnabled: true
+        orbitControlsEnabled: false
     })
 
     const orbitControls = useRef()
@@ -46,7 +46,7 @@ export default function World ()
         <directionalLight ref={directionalLight} castShadow intensity={4.5} position={[1, 2, 3]}></directionalLight>
         <ambientLight intensity={1.5}></ambientLight>
         <Sky></Sky>
-        <Physics debug gravity={[0,-9.81,0]} >
+        <Physics >
 
             { orbitControlsEnabled ? null : <Player></Player>}
             <MainEntrance></MainEntrance>  

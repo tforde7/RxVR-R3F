@@ -89,8 +89,8 @@ export default function Player() {
       friction={1}
       position={[1,1.5,4]}
       canSleep={false}
-      linearDamping={0.5}
-      angularDamping={0.5}
+      linearDamping={1}
+      angularDamping={1}
       // enabledRotations={[false, false, false]}
        >
         {/* <CapsuleCollider args={[0.5, 3]} /> */}
