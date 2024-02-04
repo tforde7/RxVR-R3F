@@ -6,6 +6,7 @@ import TourGuide from "./TourGuide";
 import Sign from "./Sign";
 // import WineCharacter from "./winecharacter";
 // import Horse from "./horse";
+// import { Knight } from "./Knight";
 
 
 const MainEntrance = () => {
@@ -25,8 +26,9 @@ const MainEntrance = () => {
             <FrontDoor></FrontDoor>
             <TourGuide></TourGuide>
             <Sign></Sign>
-            {/* <WineCharacter></WineCharacter>
-            <Horse></Horse> */}
+            {/* <WineCharacter></WineCharacter> */}
+            {/* <Horse></Horse> */}
+            {/* <Knight></Knight> */}
         </>
     );
 };
