@@ -4,6 +4,7 @@ import GlassWall from "./GlassWall";
 import FrontDoor from "./FrontDoor";
 import TourGuide from "./TourGuide";
 import Sign from "./Sign";
+// import { Robot } from "./Robot";
 // import WineCharacter from "./winecharacter";
 // import Horse from "./horse";
 // import { Knight } from "./Knight";
@@ -29,6 +30,7 @@ const MainEntrance = () => {
             {/* <WineCharacter></WineCharacter> */}
             {/* <Horse></Horse> */}
             {/* <Knight></Knight> */}
+            {/* <Robot></Robot> */}
         </>
     );
 };
