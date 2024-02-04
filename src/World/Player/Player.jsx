@@ -11,6 +11,8 @@ import { CapsuleCollider, RigidBody, useRapier } from "@react-three/rapier"
 // const sideVector = new THREE.Vector3()
 
 export default function Player() {
+
+  const STARTING_POSITION = [-420, 2.5, 3]
   const player = useRef()
   const { rapier, world } = useRapier()
   const [subscribeKeys, getKeys] = useKeyboardControls()
@@ -28,6 +30,7 @@ export default function Player() {
 
   useEffect(() => 
   {
+
     const unsubscribeJump = subscribeKeys(
       (state) => state.jump,
       (value) => 
@@ -65,20 +68,8 @@ export default function Player() {
 
     state.camera.lookAt(cameraTarget)
 
-//     const velocity = ref.current.linvel()
-//     // update camera
-//     state.camera.position.set(...ref.current.translation())
-//     // movement
-//     frontVector.set(0, 0, backward - forward)
-//     sideVector.set(left - right, 0, 0)
-//     direction.subVectors(frontVector, sideVector).normalize().multiplyScalar(SPEED).applyEuler(state.camera.rotation)
-//     console.log(ref)
-//     ref.current.setLinvel({ x: direction.x, y: velocity.y, z: direction.z })
-//     // jumping
-//     // const world = rapier.world.raw()
-//     // const ray = world.castRay(new RAPIER.Ray(ref.current.translation(), { x: 0, y: -1, z: 0 }))
-//     // const grounded = ray && ray.collider && Math.abs(ray.toi) <= 1.75
-//     // if (jump && grounded) ref.current.setLinvel({ x: 0, y: 7.5, z: 0 })
+    console.log(player.current.translation())
+
   })
   return (
     <>
@@ -87,7 +78,7 @@ export default function Player() {
       colliders='ball'
       restitution={ 0.2 }
       friction={1}
-      position={[1,2.5,4]}
+      position={STARTING_POSITION}
       canSleep={false}
       linearDamping={1}
       angularDamping={1}
@@ -97,7 +88,7 @@ export default function Player() {
 
       <mesh >
         <icosahedronGeometry args={[0.3, 1]}  />
-        <meshStandardMaterial flatShading color="blue" />
+        <meshStandardMaterial />
       </mesh>
 
     </RigidBody>

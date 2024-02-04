@@ -9,7 +9,6 @@ import { useGLTF } from '@react-three/drei'
 
 export function Buildings(props) {
   const { nodes, materials } = useGLTF('/models/buildings/buildings-transformed.glb')
-  console.log(nodes)
   return (
     <group {...props} dispose={null} scale={3}>
       <group>
