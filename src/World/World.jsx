@@ -9,6 +9,7 @@ import { Physics } from "@react-three/rapier";
 import Player from "./Player/Player.jsx";
 import { useControls } from "leva";
 import GlobalGround from "./GlobalGround.jsx";
+import { Buildings } from "./Buildings.jsx";
 
 
 
@@ -18,7 +19,7 @@ export default function World ()
 
     // Set the initial position of the camera
     const {camera} = useThree()
-    useEffect(() => {camera.position.set(0,3,15)}, [])
+    useEffect(() => {camera.position.set(-350, 100, 0)}, [])
 
     const {cameraTarget, orbitControlsEnabled} = useControls({
         cameraTarget: {
@@ -36,12 +37,12 @@ export default function World ()
 
 
     return <>
-        <SoftShadows size={25} samples={10} focus={0} ></SoftShadows>
+        {/* <SoftShadows size={25} samples={10} focus={0} ></SoftShadows> */}
         <Perf position="top-left"></Perf>
         {/* <FirstPersonControls></FirstPersonControls> */}
         <OrbitControls
             ref={orbitControls} 
-            target={[cameraTarget.x, cameraTarget.y, 0]}
+            target={[cameraTarget.x, cameraTarget.y, -2]}
             enabled={orbitControlsEnabled} >
         </OrbitControls>
         <directionalLight ref={directionalLight} castShadow intensity={4.5} position={[1, 2, 3]}></directionalLight>
@@ -52,6 +53,7 @@ export default function World ()
             { orbitControlsEnabled ? null : <Player></Player>}
             {/* <MainEntrance></MainEntrance>   */}
             <GlobalGround></GlobalGround>
+            <Buildings></Buildings>
         </Physics>
 
     </>
