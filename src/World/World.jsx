@@ -11,6 +11,7 @@ import { useControls } from "leva";
 import GlobalGround from "./GlobalGround.jsx";
 import { Buildings } from "./Buildings.jsx";
 import Sign2 from "./Sign2.jsx";
+import GlassWall from "./MainEntrance/GlassWall.jsx";
 
 
 
@@ -31,7 +32,6 @@ export default function World ()
     })
 
     const orbitControls = useRef()
-    console.log(orbitControls.current)
 
     const directionalLight = useRef()
     // useHelper(directionalLight, THREE.DirectionalLightHelper, 1)
@@ -40,8 +40,7 @@ export default function World ()
     return <>
         {/* <SoftShadows size={25} samples={10} focus={0} ></SoftShadows> */}
         <Perf position="top-left"></Perf>
-        {/* <FirstPersonControls></FirstPersonControls> */}
-        <OrbitControls
+        <OrbitControls makeDefault
             ref={orbitControls} 
             target={[cameraTarget.x, cameraTarget.y, cameraTarget.z]}
             enabled={orbitControlsEnabled}
@@ -57,6 +56,7 @@ export default function World ()
             <GlobalGround></GlobalGround>
             <Buildings></Buildings>
             <Sign2></Sign2>
+            <GlassWall></GlassWall>
         </Physics>
 
     </>

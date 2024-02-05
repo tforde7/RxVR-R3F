@@ -1,5 +1,8 @@
+import { PivotControls, TransformControls } from "@react-three/drei"
 import { useLoader } from "@react-three/fiber"
 import { RigidBody } from "@react-three/rapier"
+import { useControls } from "leva"
+import { useRef } from "react"
 import * as THREE from 'three'
 
 export default function GlassWall ()
@@ -50,11 +53,26 @@ export default function GlassWall ()
     glassAlphaTexture.wrapS = THREE.RepeatWrapping
     glassAlphaTexture.wrapT = THREE.RepeatWrapping
 
+
+    const {glassWallPosition, glassWallRotation} = useControls({
+        glassWallPosition: {
+            value: {x: -413, y: 24.6, z: -34.5},
+            step: 0.1
+        },
+        glassWallRotation: {
+            value: 1.83,
+            step: 0.01
+        }
+
+    })
+
     
     return <>
     <RigidBody type="fixed">
-        <mesh position-z={-15} position-y={15}>
-            <boxGeometry args={[30, 30, 0.2]}></boxGeometry>
+    
+        {/* <PivotControls anchor={[0,0,0]} scale={10}> */}
+        <mesh  position={[glassWallPosition.x, glassWallPosition.y, glassWallPosition.z]} rotation-y={glassWallRotation} scale={3}>
+            <boxGeometry args={[22, 16.2, 0.2]}></boxGeometry>
             <meshStandardMaterial
                 map={glassColorTexture}
                 normalMap={glassNormalTexture}
@@ -67,6 +85,7 @@ export default function GlassWall ()
             >
             </meshStandardMaterial>
         </mesh>
+        {/* </PivotControls> */}
 
     </RigidBody>
 
