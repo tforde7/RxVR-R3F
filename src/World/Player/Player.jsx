@@ -53,22 +53,27 @@ export default function Player() {
     if (backward) impulse.z += impulseStrength
     if (left) impulse.x -= impulseStrength
     if (right) impulse.x += impulseStrength
-    player.current.applyImpulse(impulse)
 
-    const playerPosition = player.current.translation()
-    const cameraPosition = new THREE.Vector3()
-    cameraPosition.copy(playerPosition)
-    cameraPosition.y += 3
-   
-    state.camera.position.copy(cameraPosition)
+    if (player.current) {
+      player.current.applyImpulse(impulse)
 
-    const cameraTarget = new THREE.Vector3()
-    cameraTarget.copy(playerPosition)
-    cameraTarget.y += 3
+      const playerPosition = player.current.translation()
+      const cameraPosition = new THREE.Vector3()
+      cameraPosition.copy(playerPosition)
+      cameraPosition.y += 3
+     
+      state.camera.position.copy(cameraPosition)
+  
+      const cameraTarget = new THREE.Vector3()
+      cameraTarget.copy(playerPosition)
+      cameraTarget.y += 3
+  
+      state.camera.lookAt(cameraTarget)
 
-    state.camera.lookAt(cameraTarget)
+    }
 
-    console.log(player.current.translation())
+
+    // console.log(player.current.translation())
 
   })
   return (
