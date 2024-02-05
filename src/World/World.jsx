@@ -12,6 +12,7 @@ import GlobalGround from "./GlobalGround.jsx";
 import { Buildings } from "./Buildings.jsx";
 import Sign2 from "./Sign2.jsx";
 import GlassWall from "./MainEntrance/GlassWall.jsx";
+import StartVR from "./StartVR.jsx";
 
 
 
@@ -58,6 +59,7 @@ export default function World ()
             <Sign2></Sign2>
             <GlassWall></GlassWall>
         </Physics>
+        <StartVR></StartVR>
 
     </>
 }
