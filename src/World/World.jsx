@@ -59,7 +59,6 @@ export default function World ()
             <Sign2></Sign2>
             <GlassWall></GlassWall>
         </Physics>
-        <StartVR></StartVR>
 
     </>
 }
