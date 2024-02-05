@@ -1,3 +1,4 @@
+import { Base, Geometry, Subtraction } from "@react-three/csg"
 import { PivotControls, TransformControls } from "@react-three/drei"
 import { useLoader } from "@react-three/fiber"
 import { RigidBody } from "@react-three/rapier"
@@ -68,11 +69,10 @@ export default function GlassWall ()
 
     
     return <>
-    <RigidBody type="fixed">
+    <RigidBody type="fixed" colliders='trimesh'>
     
         {/* <PivotControls anchor={[0,0,0]} scale={10}> */}
         <mesh  position={[glassWallPosition.x, glassWallPosition.y, glassWallPosition.z]} rotation-y={glassWallRotation} scale={3}>
-            <boxGeometry args={[22, 16.2, 0.2]}></boxGeometry>
             <meshStandardMaterial
                 map={glassColorTexture}
                 normalMap={glassNormalTexture}
@@ -84,6 +84,15 @@ export default function GlassWall ()
                 
             >
             </meshStandardMaterial>
+            <Geometry>
+                <Base>
+                    <boxGeometry args={[22, 16.2, 0.2]}></boxGeometry>
+                </Base>
+                <Subtraction scale={5} position={[0,-5.6,0]}>
+                    <boxGeometry></boxGeometry>
+                </Subtraction>
+            </Geometry>
+
         </mesh>
         {/* </PivotControls> */}
 

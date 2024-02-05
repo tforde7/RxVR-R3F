@@ -47,7 +47,7 @@ export default function Player() {
     const { forward, backward, left, right } = getKeys()
     const impulse = { x: 0, y: 0, z: 0 }
 
-    const impulseStrength = 0.6 * delta
+    const impulseStrength = 3 * delta
 
     if (forward) impulse.z -= impulseStrength
     if (backward) impulse.z += impulseStrength
