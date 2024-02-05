@@ -1,5 +1,6 @@
 import { VRButton, ARButton, XR, Controllers, Hands } from '@react-three/xr'
 import { Canvas } from '@react-three/fiber'
+import World from './World'
 
 const StartVR = () => {
   return (
@@ -9,10 +10,8 @@ const StartVR = () => {
         <XR>
           <Controllers />
           <Hands />
-          <mesh>
-            <boxGeometry />
-            <meshBasicMaterial color="blue" />
-          </mesh>
+          <World></World>
+
         </XR>
       </Canvas>
     </>
