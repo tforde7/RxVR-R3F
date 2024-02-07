@@ -1,4 +1,4 @@
-import {extend, useLoader, useThree} from "@react-three/fiber";
+import {extend, useFrame, useLoader, useThree} from "@react-three/fiber";
 import {FirstPersonControls, OrbitControls, Sky, SoftShadows, useHelper} from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { useEffect, useRef } from "react";
@@ -13,11 +13,26 @@ import { Buildings } from "./Buildings.jsx";
 import Sign2 from "./Sign2.jsx";
 import GlassWall from "./MainEntrance/GlassWall.jsx";
 import StartVR from "./StartVR.jsx";
+import { useController } from "@react-three/xr";
 
 
 
 export default function World ()
 {
+    // const {gl} = useThree()
+    // const three = useThree()
+    // console.log(three)
+    // const xrSession = gl.xr.getSession()
+    // const controller = gl.xr.getController(0)
+
+    // if (xrSession) {
+    //     console.log(xrSession)
+    //     xrSession.addEventListener('oninputsourceschange', (event) => {
+    //         console.log(event)
+    //     })  
+
+    // }
+
 
 
     // Set the initial position of the camera
@@ -36,6 +51,26 @@ export default function World ()
 
     const directionalLight = useRef()
     // useHelper(directionalLight, THREE.DirectionalLightHelper, 1)
+
+    // const leftController = useController('left')
+    // if (leftController) {
+    //     console.log(leftController)
+        
+    // }
+
+    // async createMotionController(xrInputSource) {
+
+    // }
+    // console.log(leftController)
+    // console.log(leftController?.inputSource.gamepad.axes)
+
+    // useFrame(() => {
+    //     if (leftController) {
+    //         console.log(leftController)
+    //     }
+    
+    // })
+
 
 
     return <>
