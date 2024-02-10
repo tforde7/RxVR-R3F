@@ -94,18 +94,6 @@ export default function World ()
             <Sign2></Sign2>
             <GlassWall></GlassWall>
         </Physics>
-        <TeleportationPlane
-        /** Whether to allow teleportation from left controller. Default is `false` */
-        leftHand={true}
-        /** Whether to allow teleportation from right controller. Default is `false` */
-        rightHand={true}
-        /** The maximum distance from the camera to the teleportation point. Default is `10` */
-        maxDistance={10}
-        /** The radial size of the teleportation marker. Default is `0.25` */
-        size={5}
-
-        visible={true}
-        />
 
     </>
 }
