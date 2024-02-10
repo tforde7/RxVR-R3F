@@ -1,4 +1,4 @@
-import { VRButton, ARButton, XR, Controllers, Hands } from '@react-three/xr'
+import { VRButton, ARButton, XR, Controllers, Hands, TeleportationPlane } from '@react-three/xr'
 import { Canvas } from '@react-three/fiber'
 import World from './World'
 
