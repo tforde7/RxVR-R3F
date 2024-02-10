@@ -38,7 +38,7 @@ export default function World ()
 
     // Set the initial position of the camera
     const {camera} = useThree()
-    useEffect(() => {camera.position.set(-350, 100, 0)}, [])
+    useEffect(() => {camera.position.set(-145, 1.8, 3)}, [])
 
     const {cameraTarget, orbitControlsEnabled} = useControls({
         cameraTarget: {
