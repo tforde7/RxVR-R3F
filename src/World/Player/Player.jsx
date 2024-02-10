@@ -13,6 +13,9 @@ import { CapsuleCollider, RigidBody, useRapier } from "@react-three/rapier"
 export default function Player() {
 
   const STARTING_POSITION = [-420, 2.5, 3]
+
+  // scale 1
+  const STARTING_POSITION_2 = [-145, 1.8, 3]
   const player = useRef()
   const { rapier, world } = useRapier()
   const [subscribeKeys, getKeys] = useKeyboardControls()
@@ -73,7 +76,7 @@ export default function Player() {
     }
 
 
-    // console.log(player.current.translation())
+    console.log(player.current.translation())
 
   })
   return (
@@ -83,7 +86,7 @@ export default function Player() {
       colliders='ball'
       restitution={ 0.2 }
       friction={1}
-      position={STARTING_POSITION}
+      position={STARTING_POSITION_2}
       canSleep={false}
       linearDamping={1}
       angularDamping={1}
