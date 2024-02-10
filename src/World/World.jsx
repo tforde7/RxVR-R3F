@@ -102,7 +102,9 @@ export default function World ()
         /** The maximum distance from the camera to the teleportation point. Default is `10` */
         maxDistance={10}
         /** The radial size of the teleportation marker. Default is `0.25` */
-        size={0.25}
+        size={5}
+
+        visible={true}
         />
 
     </>
