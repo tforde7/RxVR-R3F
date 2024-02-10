@@ -1,6 +1,7 @@
 import { useHelper } from "@react-three/drei";
 import {useLoader} from "@react-three/fiber";
 import { RigidBody } from "@react-three/rapier";
+import { TeleportationPlane } from "@react-three/xr";
 import { useRef } from "react";
 import * as THREE from "three";
 
@@ -52,5 +53,15 @@ export default function GlobalGround ()
             </meshStandardMaterial >
         </mesh>
     </RigidBody>
+    <TeleportationPlane
+            /** Whether to allow teleportation from left controller. Default is `false` */
+            leftHand={true}
+            /** Whether to allow teleportation from right controller. Default is `false` */
+            rightHand={true}
+            /** The maximum distance from the camera to the teleportation point. Default is `10` */
+            maxDistance={10}
+            /** The radial size of the teleportation marker. Default is `0.25` */
+            size={0.25}
+            />
     </>
 }
