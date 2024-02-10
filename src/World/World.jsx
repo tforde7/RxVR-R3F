@@ -14,6 +14,7 @@ import Sign2 from "./Sign2.jsx";
 import GlassWall from "./MainEntrance/GlassWall.jsx";
 import StartVR from "./StartVR.jsx";
 import { TeleportationPlane, useController } from "@react-three/xr";
+import FrontWallUpper from "./MainEntrance/FrontWallUpper.jsx";
 
 
 
@@ -85,7 +86,7 @@ export default function World ()
         <directionalLight ref={directionalLight} castShadow intensity={4.5} position={[1, 2, 3]}></directionalLight>
         <ambientLight intensity={1.5}></ambientLight>
         <Sky></Sky>
-        <Physics >
+        <Physics>
 
             { orbitControlsEnabled ? null : <Player></Player>}
             {/* <MainEntrance></MainEntrance>   */}
@@ -93,6 +94,7 @@ export default function World ()
             <Buildings></Buildings>
             <Sign2></Sign2>
             <GlassWall></GlassWall>
+            <FrontWallUpper></FrontWallUpper>
         </Physics>
 
     </>

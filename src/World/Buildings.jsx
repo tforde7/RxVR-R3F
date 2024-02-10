@@ -11,12 +11,17 @@ import { RigidBody } from '@react-three/rapier'
 export function Buildings(props) {
   const { nodes, materials } = useGLTF('/models/buildings/buildings-transformed.glb')
   return (
-    <RigidBody colliders='trimesh'>
-      <group {...props} dispose={null} scale={3}>
-        <group>
+    <RigidBody colliders='trimesh' type='fixed'>
+      <group {...props} dispose={null}>
+        <group scale={[3,0.5,3]}>
           <mesh geometry={nodes.Cork_University_Hospital_1.geometry} material={materials.wall} />
           <mesh geometry={nodes.Cork_University_Hospital_2.geometry} material={materials.roof} />
         </group>
+        <group scale={[3,2.5,3]} position-y={4.8}>
+          <mesh geometry={nodes.Cork_University_Hospital_1.geometry} material={materials.wall} />
+          <mesh geometry={nodes.Cork_University_Hospital_2.geometry} material={materials.roof} />
+        </group>
+
       </group>
 
     </RigidBody>
