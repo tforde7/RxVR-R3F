@@ -13,7 +13,7 @@ import { Buildings } from './Buildings.jsx'
 import Sign2 from './Sign2.jsx'
 import GlassWall from './MainEntrance/GlassWall.jsx'
 import StartVR from './StartVR.jsx'
-import { TeleportationPlane, useController } from '@react-three/xr'
+import { TeleportationPlane, useController, useXR } from '@react-three/xr'
 import FrontWallUpper from './MainEntrance/FrontWallUpper.jsx'
 import Ecctrl from 'ecctrl'
 
@@ -69,6 +69,33 @@ export default function World() {
   //     }
 
   // })
+
+  const {
+    // An array of connected `XRController`
+    controllers,
+    // Whether the XR device is presenting in an XR session
+    isPresenting,
+    // Whether hand tracking inputs are active
+    isHandTracking,
+    // A THREE.Group representing the XR viewer or player
+    player,
+    // The active `XRSession`
+    session,
+    // `XRSession` foveation. This can be configured as `foveation` on <XR>. Default is `0`
+    foveation,
+    // `XRSession` reference-space type. This can be configured as `referenceSpace` on <XR>. Default is `local-floor`
+    referenceSpace
+  } = useXR()
+
+  // console.log(controllers)
+  // console.log(isPresenting)
+  // console.log(isHandTracking)
+  // console.log(player)
+  // console.log(session)
+  // console.log(foveation)
+  // console.log(referenceSpace)
+
+  
 
   return (
     <>
