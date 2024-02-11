@@ -9,7 +9,6 @@ const StartVR = () => {
       <Canvas>
         <XR>
           <Controllers />
-          <Hands />
           <World></World>
 
         </XR>
