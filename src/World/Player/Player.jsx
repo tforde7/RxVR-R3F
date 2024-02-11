@@ -76,7 +76,7 @@ export default function Player() {
     }
 
 
-    console.log(player.current.translation())
+    // console.log(player.current.translation())
 
   })
   return (
