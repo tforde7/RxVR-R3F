@@ -14,8 +14,12 @@ const StartVR = () => {
         <XR
         onSessionStart={EnterVR}>
           <Controllers/>
-          
+          <TeleportationPlane>
           <World></World>
+
+
+          </TeleportationPlane>
+          
 
         </XR>
       </Canvas>
