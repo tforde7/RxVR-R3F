@@ -41,12 +41,7 @@ export default function GlobalGround() {
           <meshStandardMaterial map={groundColorTexture} normalMap={groundNormalTexture} aoMap={groundAOTexture} roughnessMap={groundRoughnessTexture}></meshStandardMaterial>
         </mesh>
       </RigidBody>
-      {/* <TeleportationPlane
-            leftHand={true}
-            rightHand={true}
-            maxDistance={10}
-            size={0.25}
-            /> */}
+      <TeleportationPlane/>
     </>
   )
 }
