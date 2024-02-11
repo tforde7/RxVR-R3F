@@ -83,7 +83,7 @@ export default function World() {
         {/* <MainEntrance></MainEntrance>   */}
         <GlobalGround></GlobalGround>
         <Ecctrl></Ecctrl>
-        {/* <Buildings></Buildings> */}
+        <Buildings></Buildings>
         {/* <Sign2></Sign2> */}
         {/* <GlassWall></GlassWall> */}
         {/* <FrontWallUpper></FrontWallUpper> */}
