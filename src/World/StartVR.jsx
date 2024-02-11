@@ -13,7 +13,8 @@ const StartVR = () => {
       <Canvas>
         <XR
         onSessionStart={EnterVR}>
-          <Controllers/>
+          <Controllers 
+          rayMaterial={{ color: 'black'}}/>
           <TeleportationPlane>
           <World></World>
 
