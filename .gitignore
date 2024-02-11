@@ -2,4 +2,3 @@ node_modules
 rxvr-privateKey.key
 rxvr.crt
 .prettierrc
-dist

@@ -82,7 +82,7 @@ export default function World() {
         {/* { orbitControlsEnabled ? null : <Player></Player>} */}
         {/* <MainEntrance></MainEntrance>   */}
         <GlobalGround></GlobalGround>
-        {/* <Ecctrl></Ecctrl> */}
+        <Ecctrl></Ecctrl>
         <Buildings></Buildings>
         {/* <Sign2></Sign2> */}
         {/* <GlassWall></GlassWall> */}
