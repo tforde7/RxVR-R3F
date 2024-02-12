@@ -83,8 +83,8 @@ export default function Player() {
         console.log(rightGamepad.axes)
         if (rightGamepad.axes[2] > 0.5) impulse.x += impulseStrength
         if (rightGamepad.axes[2] < -0.5) impulse.x -= impulseStrength
-        if (rightGamepad.axes[3] > 0.5) impulse.z -= impulseStrength
-        if (rightGamepad.axes[3] < -0.5) impulse.z += impulseStrength
+        if (rightGamepad.axes[3] > 0.5) impulse.z += impulseStrength
+        if (rightGamepad.axes[3] < -0.5) impulse.z -= impulseStrength
       }
     }
 
