@@ -69,6 +69,25 @@ export default function Player() {
 
     // console.log(playerMesh.current.translation())
 
+    if (XRFrame) {
+      const leftGamepad = leftController?.inputSource.gamepad
+      if (leftGamepad) {
+        console.log(leftGamepad.axes)
+      }
+      const rightGamepad = rightController?.inputSource.gamepad
+      if (rightGamepad) {
+        // axes is an array of 4 values
+        // index 0, 1 appear to do nothing
+        // index 2 is -1 to 1 left to right
+        // index 3 is -1 to 1 up to down
+        console.log(rightGamepad.axes)
+        if (rightGamepad.axes[2] > 0.5) impulse.x += impulseStrength
+        if (rightGamepad.axes[2] < -0.5) impulse.x -= impulseStrength
+        if (rightGamepad.axes[3] > 0.5) impulse.z -= impulseStrength
+        if (rightGamepad.axes[3] < -0.5) impulse.z += impulseStrength
+      }
+    }
+
     if (playerMesh.current) {
       playerMesh.current.applyImpulse(impulse)
 
@@ -89,20 +108,7 @@ export default function Player() {
 
     }
 
-    if (XRFrame) {
-      const leftGamepad = leftController?.inputSource.gamepad
-      if (leftGamepad) {
-        console.log(leftGamepad.axes)
-      }
-      const rightGamepad = rightController?.inputSource.gamepad
-      if (rightGamepad) {
-        // axes is an array of 4 values
-        // index 0, 1 appear to do nothing
-        // index 2 is -1 to 1 left to right
-        // index 3 is -1 to 1 up to down
-        console.log(rightGamepad.axes)
-      }
-    }
+
 
 
     // console.log(player.current.translation())
