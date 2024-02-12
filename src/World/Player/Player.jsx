@@ -60,7 +60,7 @@ export default function Player() {
 
     const impulse = { x: 0, y: 0, z: 0 }
 
-    const impulseStrength = 3 * delta
+    const impulseStrength = delta
 
     if (forward) impulse.z -= impulseStrength
     if (backward) impulse.z += impulseStrength
