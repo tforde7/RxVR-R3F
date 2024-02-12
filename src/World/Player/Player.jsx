@@ -1,9 +1,10 @@
 import * as THREE from "three"
 import * as RAPIER from "@dimforge/rapier3d-compat"
 import { useEffect, useRef } from "react"
-import { useFrame } from "@react-three/fiber"
+import { useFrame, useThree } from "@react-three/fiber"
 import { useKeyboardControls } from "@react-three/drei"
 import { CapsuleCollider, RigidBody, useRapier } from "@react-three/rapier"
+import { useXR } from "@react-three/xr"
 
 // const SPEED = 5
 // const direction = new THREE.Vector3()
@@ -15,20 +16,25 @@ export default function Player() {
   const STARTING_POSITION = [-420, 2.5, 3]
 
   // scale 1
-  const STARTING_POSITION_2 = [-145, 1.8, 3]
-  const player = useRef()
+  const STARTING_POSITION_2 = [0, 1.8, 0]
+  const playerMesh = useRef()
   const { rapier, world } = useRapier()
   const [subscribeKeys, getKeys] = useKeyboardControls()
 
+  const { player, isPresenting } = useXR() 
+  const { gl } = useThree()
+
+  console.log(player)
+
   const jump = () =>
   {
-    const origin = player.current.translation()
+    const origin = playerMesh.current.translation()
     origin.y -= 0.31
     const direction = {x:0, y:-1, z:0}
     const ray = new rapier.Ray(origin, direction)
     const hit = world.castRay(ray, 10, true)
     if (hit.toi < 0.015) 
-      player.current.applyImpulse({x:0, y:0.5, z:0})
+      playerMesh.current.applyImpulse({x:0, y:0.5, z:0})
   }
 
   useEffect(() => 
@@ -46,32 +52,40 @@ export default function Player() {
     return () => { unsubscribeJump() }
 
   }, [])
+
+
   useFrame((state, delta) => {
-    const { forward, backward, left, right } = getKeys()
+    const { forward, backward, leftward, rightward } = getKeys()
+
+    const camera = isPresenting ? player : state.camera
+
     const impulse = { x: 0, y: 0, z: 0 }
 
     const impulseStrength = 3 * delta
 
     if (forward) impulse.z -= impulseStrength
     if (backward) impulse.z += impulseStrength
-    if (left) impulse.x -= impulseStrength
-    if (right) impulse.x += impulseStrength
+    if (leftward) impulse.x -= impulseStrength
+    if (rightward) impulse.x += impulseStrength
 
-    if (player.current) {
-      player.current.applyImpulse(impulse)
+    console.log(playerMesh.current.translation())
 
-      const playerPosition = player.current.translation()
+    if (playerMesh.current) {
+      playerMesh.current.applyImpulse(impulse)
+
+      const playerPosition = playerMesh.current.translation()
       const cameraPosition = new THREE.Vector3()
       cameraPosition.copy(playerPosition)
       cameraPosition.y += 3
      
-      state.camera.position.copy(cameraPosition)
+      camera.position.copy(cameraPosition)
   
       const cameraTarget = new THREE.Vector3()
       cameraTarget.copy(playerPosition)
       cameraTarget.y += 3
   
-      state.camera.lookAt(cameraTarget)
+      camera.lookAt(cameraTarget)
+      // console.log(camera.position)
 
     }
 
@@ -82,7 +96,7 @@ export default function Player() {
   return (
     <>
     <RigidBody 
-      ref={player} 
+      ref={playerMesh} 
       colliders='ball'
       restitution={ 0.2 }
       friction={1}

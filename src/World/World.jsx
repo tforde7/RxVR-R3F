@@ -106,7 +106,7 @@ export default function World() {
       <ambientLight intensity={1.5}></ambientLight>
       <Sky></Sky>
       <Physics>
-        {/* { orbitControlsEnabled ? null : <Player></Player>} */}
+        { orbitControlsEnabled ? null : <Player></Player>}
         {/* <MainEntrance></MainEntrance>   */}
         <GlobalGround></GlobalGround>
         {/* <Ecctrl></Ecctrl> */}
