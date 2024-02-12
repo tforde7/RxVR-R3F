@@ -15,7 +15,6 @@ const StartVR = () => {
         onSessionStart={EnterVR}>
           <Controllers 
           rayMaterial={{ color: 'black'}}/>
-          <TeleportationPlane></TeleportationPlane>
           <World></World>
 
 
