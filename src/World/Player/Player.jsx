@@ -4,12 +4,7 @@ import { useEffect, useRef } from "react"
 import { useFrame, useThree } from "@react-three/fiber"
 import { useKeyboardControls } from "@react-three/drei"
 import { CapsuleCollider, RigidBody, useRapier } from "@react-three/rapier"
-import { useXR } from "@react-three/xr"
-
-// const SPEED = 5
-// const direction = new THREE.Vector3()
-// const frontVector = new THREE.Vector3()
-// const sideVector = new THREE.Vector3()
+import { useController, useXR } from "@react-three/xr"
 
 export default function Player() {
 
@@ -24,7 +19,9 @@ export default function Player() {
   const { player, isPresenting } = useXR() 
   const { gl } = useThree()
 
-  console.log(player)
+  const leftController = useController('left')
+  const rightController = useController('right')
+
 
   const jump = () =>
   {
@@ -54,8 +51,10 @@ export default function Player() {
   }, [])
 
 
-  useFrame((state, delta) => {
+  useFrame((state, delta, XRFrame) => {
     const { forward, backward, leftward, rightward } = getKeys()
+
+    
 
     const camera = isPresenting ? player : state.camera
 
@@ -68,7 +67,7 @@ export default function Player() {
     if (leftward) impulse.x -= impulseStrength
     if (rightward) impulse.x += impulseStrength
 
-    console.log(playerMesh.current.translation())
+    // console.log(playerMesh.current.translation())
 
     if (playerMesh.current) {
       playerMesh.current.applyImpulse(impulse)
@@ -86,7 +85,23 @@ export default function Player() {
   
       camera.lookAt(cameraTarget)
       // console.log(camera.position)
+      // console.log(isPresenting)
 
+    }
+
+    if (XRFrame) {
+      const leftGamepad = leftController?.inputSource.gamepad
+      if (leftGamepad) {
+        console.log(leftGamepad.axes)
+      }
+      const rightGamepad = rightController?.inputSource.gamepad
+      if (rightGamepad) {
+        // axes is an array of 4 values
+        // index 0, 1 appear to do nothing
+        // index 2 is -1 to 1 left to right
+        // index 3 is -1 to 1 up to down
+        console.log(rightGamepad.axes)
+      }
     }
 
 
