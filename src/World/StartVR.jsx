@@ -12,18 +12,12 @@ const StartVR = () => {
     <>
       <VRButton />
       <Canvas >
-        <XR
-        onSessionStart={EnterVR}>
-                    <color attach="background" args={["#16161b"]} />
-
+        <XR>
+          <World></World>
+          <color attach="background" args={["#16161b"]} />
+          <ambientLight />
           <Controllers 
           />
-          <World></World>
-        
-
-
-          
-
         </XR>
       </Canvas>
     </>

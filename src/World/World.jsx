@@ -33,22 +33,22 @@ export default function World() {
   // }
 
   // Set the initial position of the camera
-  const { camera } = useThree()
+  // const { camera } = useThree()
   // useEffect(() => {
   //   camera.position.set(0, 1.8, -3)
   // }, [])
 
-  const { cameraTarget, orbitControlsEnabled } = useControls({
-    cameraTarget: {
-      value: { x: 0, y: 0, z: 0 },
-      step: 0.1,
-    },
-    orbitControlsEnabled: false,
-  })
+  // const { cameraTarget, orbitControlsEnabled } = useControls({
+  //   cameraTarget: {
+  //     value: { x: 0, y: 0, z: 0 },
+  //     step: 0.1,
+  //   },
+  //   orbitControlsEnabled: false,
+  // })
 
-    const orbitControls = useRef()
+  //   const orbitControls = useRef()
 
-  const directionalLight = useRef()
+  // const directionalLight = useRef()
   // useHelper(directionalLight, THREE.DirectionalLightHelper, 1)
 
   // const leftController = useController('left')
@@ -101,9 +101,9 @@ export default function World() {
     <>
       {/* <SoftShadows size={25} samples={10} focus={0} ></SoftShadows> */}
       {/* <Perf position="top-left"></Perf> */}
-      <OrbitControls makeDefault ref={orbitControls} target={[cameraTarget.x, cameraTarget.y, cameraTarget.z]} enabled={orbitControlsEnabled}></OrbitControls>
+      {/* <OrbitControls makeDefault ref={orbitControls} target={[cameraTarget.x, cameraTarget.y, cameraTarget.z]} enabled={orbitControlsEnabled}></OrbitControls> */}
       {/* <directionalLight ref={directionalLight} castShadow intensity={4.5} position={[1, 2, 3]}></directionalLight> */}
-      <ambientLight intensity={1.5}></ambientLight>
+      {/* <ambientLight intensity={1.5}></ambientLight> */}
       {/* <Sky></Sky> */}
       {/* <Physics> */}
         {/* { orbitControlsEnabled ? null : <Player></Player>} */}
@@ -119,7 +119,13 @@ export default function World() {
         <boxGeometry></boxGeometry>
         <meshStandardMaterial color="hotpink"></meshStandardMaterial>
       </mesh>
-      <TeleportationPlane></TeleportationPlane>
+      {isPresenting && (
+        <>
+          <TeleportationPlane leftHand />
+        </>
+      )}
+
+
     </>
   )
 }
