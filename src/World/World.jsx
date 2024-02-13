@@ -119,7 +119,7 @@ export default function World() {
         <boxGeometry></boxGeometry>
         <meshStandardMaterial color="hotpink"></meshStandardMaterial>
       </mesh>
-      {/* <TeleportationPlane></TeleportationPlane> */}
+      <TeleportationPlane></TeleportationPlane>
     </>
   )
 }
