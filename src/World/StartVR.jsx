@@ -1,6 +1,7 @@
 import { VRButton, ARButton, XR, Controllers, Hands, TeleportationPlane } from '@react-three/xr'
 import { Canvas } from '@react-three/fiber'
 import World from './World'
+import { Environment } from '@react-three/drei'
 
 const StartVR = () => {
 
@@ -10,12 +11,15 @@ const StartVR = () => {
   return (
     <>
       <VRButton />
-      <Canvas>
+      <Canvas >
         <XR
         onSessionStart={EnterVR}>
+                    <color attach="background" args={["#16161b"]} />
+
           <Controllers 
-          rayMaterial={{ color: 'black'}}/>
+          />
           <World></World>
+        
 
 
           
