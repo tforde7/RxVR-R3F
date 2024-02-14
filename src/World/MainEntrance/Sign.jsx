@@ -7,7 +7,7 @@ export default function Sign() {
     <>
       <Text3D
         font="./fonts/helvetiker_regular.typeface.json"
-        position={[-14.5, 21.5, 8]}
+        position={[-15, 21.5, 8]}
         rotation-y={Math.PI * 0.5}
         size = {textSize}
       >
@@ -18,7 +18,7 @@ export default function Sign() {
 
       <Text3D
         font="./fonts/helvetiker_regular.typeface.json"
-        position={[-14.5, 19, 8]}
+        position={[-15, 19, 8]}
         rotation-y={Math.PI * 0.5}
         size = {textSize}
       >
@@ -29,7 +29,7 @@ export default function Sign() {
 
       <Text3D
         font="./fonts/helvetiker_regular.typeface.json"
-        position={[-14.5, 16.5, 8]}
+        position={[-15, 16.5, 8]}
         rotation-y={Math.PI * 0.5}
         size = {textSize}
       >

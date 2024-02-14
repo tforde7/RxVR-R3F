@@ -4,8 +4,18 @@ import GlassWall from "./GlassWall";
 import FrontDoor from "./FrontDoor";
 import TourGuide from "./TourGuide";
 import Sign from "./Sign";
-// import WineCharacter from "./winecharacter";
-// import Horse from "./horse";
+import MRI from "./Mri";
+import Ultrasound from "./ultrasound";
+import Bed_w_acc from "./room_bedandaccess";
+import Placeholder from "./placeholder";
+import Waiting_chair from "./waiting_chair";
+import XRayBoard from "./XrayBoard";
+import Rabbit from "./rabbit";
+import RabbitPigtails from "./RabbitPigtails";
+import Panda from "./Panda";
+import RabbitCyan from "./RabbitCyan";
+// import Testrabbit from "./testRabbit";
+// import Couch from "./couch";
 
 
 const MainEntrance = () => {
@@ -23,10 +33,23 @@ const MainEntrance = () => {
             <BrickWall></BrickWall>
             <GlassWall></GlassWall>
             <FrontDoor></FrontDoor>
-            <TourGuide></TourGuide>
+            {/* <TourGuide></TourGuide> */}
             <Sign></Sign>
-            {/* <WineCharacter></WineCharacter>
-            <Horse></Horse> */}
+            <MRI></MRI>
+            <Ultrasound></Ultrasound>
+            <Bed_w_acc></Bed_w_acc>
+            <Waiting_chair></Waiting_chair>
+            <Placeholder></Placeholder> 
+            <XRayBoard></XRayBoard>
+            <Rabbit></Rabbit>
+            <RabbitPigtails></RabbitPigtails>
+            <Panda></Panda>
+            <RabbitCyan></RabbitCyan>
+            {/* <Testrabbit></Testrabbit> */}
+            {/* <Couch></Couch> */}
+            
+
+
         </>
     );
 };

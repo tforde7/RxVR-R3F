@@ -48,13 +48,14 @@ export default function BrickWall ()
             <mesh position-x={-15} position-y={15} rotation-y={Math.PI * 0.5}>
                 <boxGeometry args={[30, 30, 0.2]}></boxGeometry>
                 <meshStandardMaterial
-                map = {diffuseMapTexture}
+                map={diffuseMapTexture}
                 aoMap={aoMapTexture}
                 armMap={armMapTexture} 
                 displacementMap={displacementMapTexture}
-                normalDXMap={normalMapDXTexture}
-                roughnessMap={roughnessMapTexture}>
-                    
+                displacementScale={0.01} 
+                normalMap={normalMapDXTexture}
+                roughnessMap={roughnessMapTexture}
+                >
                 </meshStandardMaterial>
             </mesh>
         </RigidBody>

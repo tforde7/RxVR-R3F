@@ -1,0 +1,11 @@
+Model Information:
+* title:	Sci-Fi MRI
+* source:	https://sketchfab.com/3d-models/sci-fi-mri-0316c6e93325481db2de156ad0098cae
+* author:	Mihail Shegolev (https://sketchfab.com/kekaros509)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Sci-Fi MRI" (https://sketchfab.com/3d-models/sci-fi-mri-0316c6e93325481db2de156ad0098cae) by Mihail Shegolev (https://sketchfab.com/kekaros509) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
