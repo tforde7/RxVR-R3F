@@ -33,18 +33,18 @@ export default function World() {
   // }
 
   // Set the initial position of the camera
-  // const { camera } = useThree()
-  // useEffect(() => {
-  //   camera.position.set(0, 1.8, -3)
-  // }, [])
+  const { camera } = useThree()
+  useEffect(() => {
+    camera.position.set(0, 1.8, -3)
+  }, [])
 
-  // const { cameraTarget, orbitControlsEnabled } = useControls({
-  //   cameraTarget: {
-  //     value: { x: 0, y: 0, z: 0 },
-  //     step: 0.1,
-  //   },
-  //   orbitControlsEnabled: false,
-  // })
+  const { cameraTarget, orbitControlsEnabled } = useControls({
+    cameraTarget: {
+      value: { x: 0, y: 0, z: 0 },
+      step: 0.1,
+    },
+    orbitControlsEnabled: false,
+  })
 
   //   const orbitControls = useRef()
 
@@ -100,13 +100,13 @@ export default function World() {
   return (
     <>
       {/* <SoftShadows size={25} samples={10} focus={0} ></SoftShadows> */}
-      {/* <Perf position="top-left"></Perf> */}
-      {/* <OrbitControls makeDefault ref={orbitControls} target={[cameraTarget.x, cameraTarget.y, cameraTarget.z]} enabled={orbitControlsEnabled}></OrbitControls> */}
+      <Perf position="top-left"></Perf>
+      <OrbitControls makeDefault target={[cameraTarget.x, cameraTarget.y, cameraTarget.z]} enabled={orbitControlsEnabled}></OrbitControls>
       {/* <directionalLight ref={directionalLight} castShadow intensity={4.5} position={[1, 2, 3]}></directionalLight> */}
       <ambientLight intensity={1.5}></ambientLight>
       <Sky></Sky>
       <Physics>
-        {/* { orbitControlsEnabled ? null : <Player></Player>} */}
+        { orbitControlsEnabled ? null : <Player></Player>}
         {/* <MainEntrance></MainEntrance>   */}
         <GlobalGround></GlobalGround>
         {/* <Ecctrl></Ecctrl> */}
