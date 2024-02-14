@@ -14,7 +14,6 @@ const StartVR = () => {
       <Canvas >
         <XR>
           <World></World>
-          <color attach="background" args={["#16161b"]} />
           <ambientLight />
           <Controllers 
           />

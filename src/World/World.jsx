@@ -104,13 +104,13 @@ export default function World() {
       {/* <OrbitControls makeDefault ref={orbitControls} target={[cameraTarget.x, cameraTarget.y, cameraTarget.z]} enabled={orbitControlsEnabled}></OrbitControls> */}
       {/* <directionalLight ref={directionalLight} castShadow intensity={4.5} position={[1, 2, 3]}></directionalLight> */}
       <ambientLight intensity={1.5}></ambientLight>
-      {/* <Sky></Sky> */}
+      <Sky></Sky>
       <Physics>
         {/* { orbitControlsEnabled ? null : <Player></Player>} */}
         {/* <MainEntrance></MainEntrance>   */}
         <GlobalGround></GlobalGround>
         {/* <Ecctrl></Ecctrl> */}
-        {/* <Buildings></Buildings> */}
+        <Buildings></Buildings>
         {/* <Sign2></Sign2> */}
         {/* <GlassWall></GlassWall> */}
         {/* <FrontWallUpper></FrontWallUpper> */}
