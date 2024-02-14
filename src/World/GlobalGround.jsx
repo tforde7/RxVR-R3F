@@ -36,9 +36,15 @@ export default function GlobalGround() {
   return (
     <>
       <RigidBody type="fixed" friction={0.6}>
-        <mesh>
+        <mesh position={[0, -0.51, 0]}>
           <boxGeometry args={[1000, 1, 1000]}></boxGeometry>
-          <meshStandardMaterial map={groundColorTexture} normalMap={groundNormalTexture} aoMap={groundAOTexture} roughnessMap={groundRoughnessTexture}></meshStandardMaterial>
+          <meshStandardMaterial 
+          map={groundColorTexture} 
+          normalMap={groundNormalTexture} 
+          aoMap={groundAOTexture} 
+          roughnessMap={groundRoughnessTexture}>
+            
+          </meshStandardMaterial>
         </mesh>
       </RigidBody>
     </>
