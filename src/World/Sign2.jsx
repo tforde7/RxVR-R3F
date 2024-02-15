@@ -8,14 +8,14 @@ export default function Sign2() {
   const { position, rotation } = useControls('Sign', {
     position: {
       value: {
-        x: 0,
-        y: 5,
-        z: 0,
+        x: 4.6,
+        y: 9.3,
+        z: -10.4,
       },
       step: 0.1,
     },
     rotation: {
-      value: 0,
+      value: 0.28,
       step: 0.01,
     },
   })
