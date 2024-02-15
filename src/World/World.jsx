@@ -84,7 +84,7 @@ export default function World() {
     // `XRSession` foveation. This can be configured as `foveation` on <XR>. Default is `0`
     foveation,
     // `XRSession` reference-space type. This can be configured as `referenceSpace` on <XR>. Default is `local-floor`
-    referenceSpace
+    referenceSpace,
   } = useXR()
 
   // console.log(controllers)
@@ -95,8 +95,6 @@ export default function World() {
   // console.log(foveation)
   // console.log(referenceSpace)
 
-  
-
   return (
     <>
       {/* <SoftShadows size={25} samples={10} focus={0} ></SoftShadows> */}
@@ -106,7 +104,7 @@ export default function World() {
       <ambientLight intensity={1.5}></ambientLight>
       <Sky></Sky>
       <Physics>
-        { orbitControlsEnabled ? null : <Player></Player>}
+        {orbitControlsEnabled ? null : <Player></Player>}
         {/* <MainEntrance></MainEntrance>   */}
         <GlobalGround></GlobalGround>
         {/* <Ecctrl></Ecctrl> */}
@@ -118,11 +116,9 @@ export default function World() {
 
       {isPresenting && (
         <>
-          <TeleportationPlane leftHand />
+          <TeleportationPlane rightHand />
         </>
       )}
-
-
     </>
   )
 }

@@ -12,7 +12,7 @@ import { useControls } from 'leva'
 export function Buildings(props) {
   const { nodes, materials } = useGLTF('/models/buildings/buildings-transformed.glb')
 
-  const { buildingsPosition } = useControls({
+  const { buildingsPosition, buildingsVisibile } = useControls({
     buildingsPosition: {
       value: {
         x: 150,
@@ -21,21 +21,22 @@ export function Buildings(props) {
       },
       step: 0.1,
     },
+    buildingsVisibile: true,
   })
 
   return (
-    <RigidBody colliders="trimesh" type="fixed">
-      <group {...props} dispose={null} position-x={buildingsPosition.x} position-z={buildingsPosition.z}>
-        <group>
-          <mesh geometry={nodes.Cork_University_Hospital_1.geometry} material={materials.wall} />
-          <mesh geometry={nodes.Cork_University_Hospital_2.geometry} material={materials.roof} />
-        </group>
-        {/* <group scale={[3,2.5,3]} position-y={4.8}>
+    // <RigidBody colliders="trimesh" type="fixed">
+    <group {...props} dispose={null} position-x={buildingsPosition.x} position-z={buildingsPosition.z} visible={buildingsVisibile}>
+      <group>
+        <mesh geometry={nodes.Cork_University_Hospital_1.geometry} material={materials.wall} />
+        <mesh geometry={nodes.Cork_University_Hospital_2.geometry} material={materials.roof} />
+      </group>
+      {/* <group scale={[3,2.5,3]} position-y={4.8}>
           <mesh geometry={nodes.Cork_University_Hospital_1.geometry} material={materials.wall} />
           <mesh geometry={nodes.Cork_University_Hospital_2.geometry} material={materials.roof} />
         </group> */}
-      </group>
-    </RigidBody>
+    </group>
+    // </RigidBody>
   )
 }
 
