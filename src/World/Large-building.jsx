@@ -36,6 +36,7 @@ export function LargeBuilding(props) {
       step: 0.01,
     },
   })
+
   return (
     <RigidBody colliders="trimesh" type="fixed">
       <group

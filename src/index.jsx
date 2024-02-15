@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(
   <StrictMode>
-    <Leva></Leva>
+    <Leva hidden></Leva>
     <KeyboardControls
       map={[
         { name: 'forward', keys: ['ArrowUp', 'KeyW'] },

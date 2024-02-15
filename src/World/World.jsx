@@ -46,7 +46,7 @@ export default function World() {
       value: { x: 0, y: 0, z: 0 },
       step: 0.1,
     },
-    orbitControlsEnabled: true,
+    orbitControlsEnabled: false,
   })
 
   //   const orbitControls = useRef()
@@ -101,8 +101,8 @@ export default function World() {
   return (
     <>
       {/* <SoftShadows size={25} samples={10} focus={0} ></SoftShadows> */}
-      <Perf position="top-left"></Perf>
-      <OrbitControls makeDefault target={[cameraTarget.x, cameraTarget.y, cameraTarget.z]} enabled={orbitControlsEnabled}></OrbitControls>
+      {/* <Perf position="top-left"></Perf> */}
+      {/* <OrbitControls makeDefault target={[cameraTarget.x, cameraTarget.y, cameraTarget.z]} enabled={orbitControlsEnabled}></OrbitControls> */}
       {/* <directionalLight ref={directionalLight} castShadow intensity={4.5} position={[1, 2, 3]}></directionalLight> */}
       <ambientLight intensity={1.5}></ambientLight>
       <Sky></Sky>
