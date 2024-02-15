@@ -20,7 +20,6 @@ import { LargeBuilding } from './Large-building.jsx'
 import LectureTheatre from './LectureTheatre.jsx'
 import Lobby from './Lobby.jsx'
 import MainConcourse from './MainConcourse.jsx'
-import { SlidingDoor } from './Sliding-door.jsx'
 
 export default function World() {
   // const {gl} = useThree()
