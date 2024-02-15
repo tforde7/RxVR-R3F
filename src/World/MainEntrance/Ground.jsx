@@ -50,15 +50,16 @@ export default function Ground ()
     return <>
     <RigidBody type="fixed">
         <mesh receiveShadow rotation-x={-Math.PI * 0.5}>
-            <boxGeometry args={[30, 30, 1]}></boxGeometry>
+            <boxGeometry args={[30, 30, 0.4]}></boxGeometry>
             <meshStandardMaterial
-                map = {diffuseMapTexture}
-                aoMap={aoMapTexture}
-                armMap={armMapTexture} 
-                displacementMap={displacementMapTexture}
-                normalDXMap={normalMapDXTexture}
-                roughnessMap={roughnessMapTexture}
-                >
+            map={diffuseMapTexture}
+            aoMap={aoMapTexture}
+            armMap={armMapTexture} 
+            displacementMap={displacementMapTexture}
+            displacementScale={0.01} 
+            normalMap={normalMapDXTexture}
+            roughnessMap={roughnessMapTexture}
+            >
             </meshStandardMaterial>
         </mesh>
     </RigidBody>
