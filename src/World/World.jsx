@@ -16,6 +16,7 @@ import StartVR from './StartVR.jsx'
 import { TeleportationPlane, useController, useXR } from '@react-three/xr'
 import FrontWallUpper from './MainEntrance/FrontWallUpper.jsx'
 import Ecctrl from 'ecctrl'
+import { LargeBuilding } from './Large-building.jsx'
 
 export default function World() {
   // const {gl} = useThree()
@@ -103,12 +104,13 @@ export default function World() {
       {/* <directionalLight ref={directionalLight} castShadow intensity={4.5} position={[1, 2, 3]}></directionalLight> */}
       <ambientLight intensity={1.5}></ambientLight>
       <Sky></Sky>
+      <Buildings></Buildings>
       <Physics>
         {orbitControlsEnabled ? null : <Player></Player>}
         {/* <MainEntrance></MainEntrance>   */}
         <GlobalGround></GlobalGround>
+        <LargeBuilding></LargeBuilding>
         {/* <Ecctrl></Ecctrl> */}
-        <Buildings></Buildings>
         {/* <Sign2></Sign2> */}
         {/* <GlassWall></GlassWall> */}
         {/* <FrontWallUpper></FrontWallUpper> */}
