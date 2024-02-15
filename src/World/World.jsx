@@ -111,7 +111,7 @@ export default function World() {
         {orbitControlsEnabled ? null : <Player></Player>}
         {/* <MainEntrance></MainEntrance>   */}
         <GlobalGround></GlobalGround>
-        {/* <LargeBuilding></LargeBuilding> */}
+        <LargeBuilding></LargeBuilding>
         {/* <Ecctrl></Ecctrl> */}
         <Sign2></Sign2>
         <Lobby></Lobby>

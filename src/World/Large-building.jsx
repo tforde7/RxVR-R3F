@@ -10,13 +10,15 @@ import { useControls } from 'leva'
 import { RigidBody } from '@react-three/rapier'
 
 export function LargeBuilding(props) {
-  const { nodes, materials } = useGLTF('/models/large-building/large-building-transformed.glb')
+  const { nodes, materials } = useGLTF('/models/large-building/large-building-without-door-transformed.glb')
+  const buildingGeometry = nodes.large_buildingF.geometry
+  console.log(buildingGeometry)
 
   const { largeBuildingScale, largeBuilldingPosition, largeBuildingRotation } = useControls({
     largeBuildingScale: {
       value: {
         x: 11.1,
-        y: 13.1,
+        y: 8.8,
         z: 1,
       },
       step: 0.1,
@@ -42,10 +44,10 @@ export function LargeBuilding(props) {
         scale={[largeBuildingScale.x, largeBuildingScale.y, largeBuildingScale.z]}
         position={[largeBuilldingPosition.x, largeBuilldingPosition.y, largeBuilldingPosition.z]}
         rotation-y={largeBuildingRotation}>
-        <mesh geometry={nodes.large_buildingF.geometry} material={materials.PaletteMaterial001} />
+        <mesh geometry={nodes.large_buildingF.geometry} material={materials.PaletteMaterial001}></mesh>
       </group>
     </RigidBody>
   )
 }
 
-useGLTF.preload('/models/large-building/large-building-transformed.glb')
+useGLTF.preload('/models/large-building/large-building-without-door-transformed.glb')
