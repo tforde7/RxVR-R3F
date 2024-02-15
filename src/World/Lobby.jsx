@@ -24,13 +24,13 @@ const Lobby = () => {
     size: {
       value: {
         height: 3,
-        width: 5,
+        width: 6,
       },
       step: 0.1,
     },
     doorPosition: {
       value: {
-        x: 0,
+        x: -0.6,
         y: -0.3,
         z: 0,
       },
