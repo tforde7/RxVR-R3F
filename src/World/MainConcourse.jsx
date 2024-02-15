@@ -4,13 +4,13 @@ import { RigidBody } from '@react-three/rapier'
 import { useControls } from 'leva'
 import * as THREE from 'three'
 
-const Lobby = () => {
-  const { lobbyPosition, rotation } = useControls('Lobby', {
-    lobbyPosition: {
+const MainConcourse = () => {
+  const { concoursePosition, rotation } = useControls('Concourse', {
+    concoursePosition: {
       value: {
-        x: 22.9,
+        x: 62.9,
         y: 5.4,
-        z: -5.1,
+        z: -14.2,
       },
       step: 0.1,
     },
@@ -20,35 +20,17 @@ const Lobby = () => {
     },
   })
 
-  const { size, doorPosition } = useControls('Front Door Cavity', {
-    size: {
+  const { wardCavitySize, wardCavityPosition } = useControls('Ward Cavity', {
+    wardCavitySize: {
       value: {
         height: 3,
         width: 6,
       },
       step: 0.1,
     },
-    doorPosition: {
+    wardCavityPosition: {
       value: {
         x: -0.6,
-        y: -0.3,
-        z: 0,
-      },
-      step: 0.1,
-    },
-  })
-
-  const { lobbyCavitySize, lobbyCavityPosition } = useControls('Lobby Cavity', {
-    lobbyCavitySize: {
-      value: {
-        height: 3,
-        width: 15.7,
-      },
-      step: 0.1,
-    },
-    lobbyCavityPosition: {
-      value: {
-        x: -2.4,
         y: -0.3,
         z: 0,
       },
@@ -100,59 +82,50 @@ const Lobby = () => {
     roughnessMap: ceilingRoughnessTexture,
     side: THREE.DoubleSide,
   })
-
-  const roomMaterials = [wallMaterial, wallMaterial, floorMaterial, ceilingMaterial, wallMaterial, wallMaterial]
-
   return (
     <>
       <RigidBody colliders="trimesh" type="fixed">
-        <group position={[lobbyPosition.x, lobbyPosition.y, lobbyPosition.z]} rotation-y={rotation}>
+        <group position={[concoursePosition.x, concoursePosition.y, concoursePosition.z]} rotation-y={rotation}>
           <mesh position-y={3.6}>
-            <boxGeometry args={[22, 3.6, 20.5]}></boxGeometry>
+            <boxGeometry args={[60, 3.6, 16]}></boxGeometry>
             <meshStandardMaterial></meshStandardMaterial>
           </mesh>
           <mesh>
-            <boxGeometry args={[22, 3.6, 20.5]}></boxGeometry>
+            <boxGeometry args={[60, 3.6, 16]}></boxGeometry>
             <meshStandardMaterial></meshStandardMaterial>
           </mesh>
           <group position-y={-3.6}>
             {/* left */}
-            <mesh position={[0, 0, -10.25]} material={wallMaterial}>
-              <planeGeometry args={[22, 3.6]} />
+            <mesh position={[0, 0, -8]} material={wallMaterial}>
+              <planeGeometry args={[60, 3.6]} />
             </mesh>
             {/* right */}
-            <mesh position={[0, 0, 10.25]} material={wallMaterial}>
-              <planeGeometry args={[22, 3.6]} />
+            <mesh position={[0, 0, 8]} material={wallMaterial}>
+              <planeGeometry args={[60, 3.6]} />
             </mesh>
             {/* front */}
-            <mesh rotation-y={Math.PI / 2} position={[-11, 0, 0]} material={wallMaterial}>
-              <Geometry>
+            {/* <mesh rotation-y={Math.PI / 2} position={[-30, 0, 0]} material={wallMaterial}>
+              <Geometry showOperations useGroups>
                 <Base>
-                  <planeGeometry args={[20.5, 3.6]} />
-                </Base>
-                <Subtraction position={[doorPosition.x, doorPosition.y, doorPosition.z]}>
-                  <boxGeometry args={[size.width, size.height, 1]}></boxGeometry>
-                </Subtraction>
-              </Geometry>
-            </mesh>
-            {/* back */}
-            <mesh rotation-y={Math.PI / 2} position={[11, 0, 0]} material={wallMaterial}>
-              <Geometry>
-                <Base>
-                  <planeGeometry args={[20.5, 3.6]} />
+                  <planeGeometry args={[16, 3.6]} />
                 </Base>
                 <Subtraction position={[lobbyCavityPosition.x, lobbyCavityPosition.y, lobbyCavityPosition.z]}>
                   <boxGeometry args={[lobbyCavitySize.width, lobbyCavitySize.height, 1]}></boxGeometry>
+                  <meshStandardMaterial color={'red'} wireframe></meshStandardMaterial>
                 </Subtraction>
               </Geometry>
+            </mesh> */}
+            {/* back */}
+            <mesh rotation-y={Math.PI / 2} position={[30, 0, 0]} material={wallMaterial}>
+              <planeGeometry args={[16, 3.6]} />
             </mesh>
             {/* ceiling */}
             <mesh rotation-x={Math.PI / 2} position={[0, 1.79, 0]} material={ceilingMaterial}>
-              <planeGeometry args={[22, 20.5]} />
+              <planeGeometry args={[60, 16]} />
             </mesh>
             {/* floor */}
             <mesh rotation-x={Math.PI / 2} position={[0, -1.8, 0]} material={floorMaterial}>
-              <planeGeometry args={[22, 20.5]} />
+              <planeGeometry args={[60, 16]} />
             </mesh>
           </group>
         </group>
@@ -161,4 +134,4 @@ const Lobby = () => {
   )
 }
 
-export default Lobby
+export default MainConcourse
