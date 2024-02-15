@@ -112,7 +112,7 @@ export default function World() {
         <GlobalGround></GlobalGround>
         <LargeBuilding></LargeBuilding>
         {/* <Ecctrl></Ecctrl> */}
-        {/* <Sign2></Sign2> */}
+        <Sign2></Sign2>
         {/* <GlassWall></GlassWall> */}
         {/* <FrontWallUpper></FrontWallUpper> */}
         <LectureTheatre></LectureTheatre>
