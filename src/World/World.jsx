@@ -18,6 +18,7 @@ import FrontWallUpper from './MainEntrance/FrontWallUpper.jsx'
 import Ecctrl from 'ecctrl'
 import { LargeBuilding } from './Large-building.jsx'
 import LectureTheatre from './LectureTheatre.jsx'
+import Lobby from './Lobby.jsx'
 
 export default function World() {
   // const {gl} = useThree()
@@ -45,7 +46,7 @@ export default function World() {
       value: { x: 0, y: 0, z: 0 },
       step: 0.1,
     },
-    orbitControlsEnabled: false,
+    orbitControlsEnabled: true,
   })
 
   //   const orbitControls = useRef()
@@ -110,9 +111,10 @@ export default function World() {
         {orbitControlsEnabled ? null : <Player></Player>}
         {/* <MainEntrance></MainEntrance>   */}
         <GlobalGround></GlobalGround>
-        <LargeBuilding></LargeBuilding>
+        {/* <LargeBuilding></LargeBuilding> */}
         {/* <Ecctrl></Ecctrl> */}
         <Sign2></Sign2>
+        <Lobby></Lobby>
         {/* <GlassWall></GlassWall> */}
         {/* <FrontWallUpper></FrontWallUpper> */}
         <LectureTheatre></LectureTheatre>

@@ -21,7 +21,7 @@ export function Buildings(props) {
       },
       step: 0.1,
     },
-    buildingsVisibile: true,
+    buildingsVisibile: false,
   })
 
   return (
