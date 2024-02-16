@@ -3,9 +3,9 @@ import { RigidBody } from '@react-three/rapier'
 import { useControls } from 'leva'
 import * as THREE from 'three'
 
-const Ladybird = () => {
-  const { ladybirdPosition, rotation } = useControls('Ladybird', {
-    ladybirdPosition: {
+const Seahorse = () => {
+  const { seahorsePosition, rotation } = useControls('Seahorse', {
+    seahorsePosition: {
       value: {
         x: 64.06,
         y: -0.01,
@@ -66,7 +66,7 @@ const Ladybird = () => {
 
   return (
     <>
-      <group position={[ladybirdPosition.x, ladybirdPosition.y, ladybirdPosition.z]} rotation-y={rotation}>
+      <group position={[seahorsePosition.x, seahorsePosition.y, seahorsePosition.z]} rotation-y={rotation}>
         {/* Corridoor */}
         <group>
           {/* Floor */}
@@ -98,4 +98,4 @@ const Ladybird = () => {
   )
 }
 
-export default Ladybird
+export default Seahorse
