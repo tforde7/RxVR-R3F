@@ -151,7 +151,7 @@ const Lobby = () => {
               <planeGeometry args={[22, 20.5]} />
             </mesh>
             {/* floor */}
-            <mesh rotation-x={Math.PI / 2} position={[0, -1.81, 0]} material={floorMaterial}>
+            <mesh rotation-x={Math.PI / 2} position={[0, -1.82, 0]} material={floorMaterial}>
               <planeGeometry args={[22, 20.5]} />
             </mesh>
           </group>
