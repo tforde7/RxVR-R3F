@@ -24,13 +24,13 @@ const MainConcourse = () => {
     wardCavitySize: {
       value: {
         height: 3,
-        width: 6,
+        width: 2,
       },
       step: 0.1,
     },
     wardCavityPosition: {
       value: {
-        x: -0.6,
+        x: 5.7,
         y: -0.3,
         z: 0,
       },
@@ -97,7 +97,14 @@ const MainConcourse = () => {
           <group position-y={-3.6}>
             {/* left */}
             <mesh position={[0, 0, -8]} material={wallMaterial}>
-              <planeGeometry args={[60, 3.6]} />
+              <Geometry>
+                <Base>
+                  <planeGeometry args={[60, 3.6]} />
+                </Base>
+                <Subtraction position={[wardCavityPosition.x, wardCavityPosition.y, wardCavityPosition.z]}>
+                  <boxGeometry args={[wardCavitySize.width, wardCavitySize.height, 1]}></boxGeometry>
+                </Subtraction>
+              </Geometry>
             </mesh>
             {/* right */}
             <mesh position={[0, 0, 8]} material={wallMaterial}>

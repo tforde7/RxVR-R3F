@@ -20,6 +20,8 @@ import { LargeBuilding } from './Large-building.jsx'
 import LectureTheatre from './LectureTheatre.jsx'
 import Lobby from './Lobby.jsx'
 import MainConcourse from './MainConcourse.jsx'
+import { SlidingDoor } from './Sliding-door.jsx'
+import Ladybird from './Ladybird.jsx'
 
 export default function World() {
   // const {gl} = useThree()
@@ -120,6 +122,7 @@ export default function World() {
         {/* <FrontWallUpper></FrontWallUpper> */}
         <LectureTheatre></LectureTheatre>
         <MainConcourse></MainConcourse>
+        <Ladybird></Ladybird>
       </Physics>
 
       {isPresenting && (

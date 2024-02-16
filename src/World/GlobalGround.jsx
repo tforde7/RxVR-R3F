@@ -36,7 +36,7 @@ export default function GlobalGround() {
   return (
     <>
       <RigidBody type="fixed" friction={0.6}>
-        <mesh position={[0, -0.51, 0]}>
+        <mesh position={[0, -0.53, 0]}>
           <boxGeometry args={[1000, 1, 1000]}></boxGeometry>
           <meshStandardMaterial 
           map={groundColorTexture} 
