@@ -49,7 +49,7 @@ export default function World() {
       value: { x: 0, y: 0, z: 0 },
       step: 0.1,
     },
-    orbitControlsEnabled: true,
+    orbitControlsEnabled: false,
   })
 
   //   const orbitControls = useRef()
