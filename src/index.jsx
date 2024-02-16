@@ -5,6 +5,7 @@ import World from "./World/World.jsx";
 import { StrictMode } from 'react';
 import { KeyboardControls, PointerLockControls } from '@react-three/drei';
 import { Leva } from 'leva';
+import StartVR from './World/StartVR.jsx';
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
@@ -19,10 +20,10 @@ root.render(
                 { name: "right", keys: ["ArrowRight", "KeyD"] },
                 { name: "jump", keys: ["Space"] },
             ]} >
-            <Canvas shadows>
+            {/* <Canvas>
                 <World></World>
-                {/* <PointerLockControls></PointerLockControls> */}
-            </Canvas>
+            </Canvas> */}
+            <StartVR></StartVR>
         </KeyboardControls>
     </StrictMode>
 
