@@ -3,6 +3,19 @@ import { useLoader } from '@react-three/fiber'
 import { RigidBody } from '@react-three/rapier'
 import { useControls } from 'leva'
 import * as THREE from 'three'
+import Couch from './MainEntrance/couch'
+import MRI from './MainEntrance/Mri'
+import Panda from './MainEntrance/Panda'
+import Placeholder from './MainEntrance/placeholder'
+import Rabbit from './MainEntrance/rabbit'
+import RabbitCyan from './MainEntrance/RabbitCyan'
+import RabbitPigtails from './MainEntrance/RabbitPigtails'
+import Bed_w_acc from './MainEntrance/room_bedandaccess'
+import Testrabbit from './MainEntrance/testRabbit'
+import TourGuide from './MainEntrance/TourGuide'
+import Ultrasound from './MainEntrance/ultrasound'
+import Waiting_chair from './MainEntrance/waiting_chair'
+import XRayBoard from './MainEntrance/XrayBoard'
 
 const Lobby = () => {
   const { lobbyPosition, rotation } = useControls('Lobby', {
@@ -157,6 +170,22 @@ const Lobby = () => {
           </group>
         </group>
       </RigidBody>
+      {/* Models */}
+      {/* <group>
+        <Couch></Couch>
+        <MRI></MRI>
+        <Panda></Panda>
+        <Rabbit></Rabbit>
+        <RabbitCyan></RabbitCyan>
+        <RabbitPigtails></RabbitPigtails>
+        <Bed_w_acc></Bed_w_acc>
+        <Testrabbit></Testrabbit>
+        <TourGuide></TourGuide>
+        <Ultrasound></Ultrasound>
+        <Waiting_chair></Waiting_chair>
+        <XRayBoard></XRayBoard>
+
+      </group> */}
     </>
   )
 }
