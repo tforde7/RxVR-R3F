@@ -22,6 +22,7 @@ import Lobby from './Lobby.jsx'
 import MainConcourse from './MainConcourse.jsx'
 import Seahorse from './Seahorse.jsx'
 import XRayRoom from './XRayRoom.jsx'
+import MRIRoom from './MRIRoom.jsx'
 
 export default function World() {
   // const {gl} = useThree()
@@ -124,6 +125,7 @@ export default function World() {
         <MainConcourse></MainConcourse>
         <Seahorse></Seahorse>
         <XRayRoom></XRayRoom>
+        <MRIRoom></MRIRoom>
       </Physics>
 
       {isPresenting && (
