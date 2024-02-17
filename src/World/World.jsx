@@ -1,5 +1,5 @@
 import { extend, useFrame, useLoader, useThree } from '@react-three/fiber'
-import { FirstPersonControls, OrbitControls, Sky, SoftShadows, useHelper } from '@react-three/drei'
+import { FirstPersonControls, OrbitControls, Sky, SoftShadows, useHelper, useProgress } from '@react-three/drei'
 import { Perf } from 'r3f-perf'
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
@@ -24,6 +24,7 @@ import Seahorse from './Seahorse.jsx'
 import XRayRoom from './XRayRoom.jsx'
 import MRIRoom from './MRIRoom.jsx'
 import RabbitCyan from './MainEntrance/RabbitCyan.jsx'
+import Overlay from '../Overlay.jsx'
 
 export default function World() {
   // const {gl} = useThree()
@@ -39,6 +40,8 @@ export default function World() {
   //     })
 
   // }
+
+  // useProgress((progress) => console.log(progress))
 
   const backgroundMusic = new Audio('/sounds/ballerina.mp3')
   // backgroundMusic.play()
@@ -135,6 +138,7 @@ export default function World() {
           <TeleportationPlane rightHand />
         </>
       )}
+      {/* <Overlay></Overlay> */}
     </>
   )
 }
