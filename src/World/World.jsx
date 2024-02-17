@@ -21,7 +21,7 @@ import LectureTheatre from './LectureTheatre.jsx'
 import Lobby from './Lobby.jsx'
 import MainConcourse from './MainConcourse.jsx'
 import { SlidingDoor } from './Sliding-door.jsx'
-import Seahorse from './Ladybird.jsx'
+import Seahorse from './Seahorse.jsx'
 
 export default function World() {
   // const {gl} = useThree()
@@ -49,7 +49,7 @@ export default function World() {
       value: { x: 0, y: 0, z: 0 },
       step: 0.1,
     },
-    orbitControlsEnabled: false,
+    orbitControlsEnabled: true,
   })
 
   //   const orbitControls = useRef()
