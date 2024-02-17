@@ -23,6 +23,7 @@ import MainConcourse from './MainConcourse.jsx'
 import Seahorse from './Seahorse.jsx'
 import XRayRoom from './XRayRoom.jsx'
 import MRIRoom from './MRIRoom.jsx'
+import RabbitCyan from './MainEntrance/RabbitCyan.jsx'
 
 export default function World() {
   // const {gl} = useThree()
@@ -38,6 +39,10 @@ export default function World() {
   //     })
 
   // }
+
+  const backgroundMusic = new Audio('/sounds/ballerina.mp3')
+  // backgroundMusic.play()
+  backgroundMusic.loop = true
 
   // Set the initial position of the camera
   const { camera } = useThree()
@@ -111,21 +116,18 @@ export default function World() {
       <ambientLight intensity={1.5}></ambientLight>
       <Sky></Sky>
       <Buildings></Buildings>
-      <Physics>
+      <Physics debug>
         {orbitControlsEnabled ? null : <Player></Player>}
-        {/* <MainEntrance></MainEntrance>   */}
         <GlobalGround></GlobalGround>
         <LargeBuilding></LargeBuilding>
-        {/* <Ecctrl></Ecctrl> */}
         <Sign2></Sign2>
         <Lobby></Lobby>
-        {/* <GlassWall></GlassWall> */}
-        {/* <FrontWallUpper></FrontWallUpper> */}
         <LectureTheatre></LectureTheatre>
         <MainConcourse></MainConcourse>
         <Seahorse></Seahorse>
         <XRayRoom></XRayRoom>
         <MRIRoom></MRIRoom>
+        <RabbitCyan></RabbitCyan>
       </Physics>
 
       {isPresenting && (
