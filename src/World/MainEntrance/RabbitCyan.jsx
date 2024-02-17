@@ -6,6 +6,7 @@ import { Interactive, useInteraction } from '@react-three/xr'
 import { useEffect, useRef } from 'react'
 import { BoxHelper } from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import FloatingButton from '../FloatingButton'
 
 export default function RabbitCyan() {
   const rabbitcyan = useGLTF('/models/AnimalGuides/Rabbit Cyan.glb')
@@ -39,6 +40,9 @@ export default function RabbitCyan() {
   return (
     <>
       <primitive ref={rabbitRef} object={rabbitcyan.scene} scale={0.5} position-y={0} rotation-y={Math.PI}></primitive>
+      <FloatingButton height={0.5} width={1.1} position={[2, 2.5, 0]} text="Seahorse Ward"></FloatingButton>
+      <FloatingButton height={0.5} width={1.1} position={[0, 2.5, 0]} text="MRI Room"></FloatingButton>
+      <FloatingButton height={0.5} width={1.1} position={[-2, 2.5, 0]} text="X-Ray Room"></FloatingButton>
     </>
   )
 }
