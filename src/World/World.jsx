@@ -13,15 +13,15 @@ import { Buildings } from './Buildings.jsx'
 import Sign2 from './Sign2.jsx'
 import GlassWall from './MainEntrance/GlassWall.jsx'
 import StartVR from './StartVR.jsx'
-import { TeleportationPlane, useController, useXR } from '@react-three/xr'
+import { TeleportationPlane, XR, useController, useXR } from '@react-three/xr'
 import FrontWallUpper from './MainEntrance/FrontWallUpper.jsx'
 import Ecctrl from 'ecctrl'
 import { LargeBuilding } from './Large-building.jsx'
 import LectureTheatre from './LectureTheatre.jsx'
 import Lobby from './Lobby.jsx'
 import MainConcourse from './MainConcourse.jsx'
-import { SlidingDoor } from './Sliding-door.jsx'
 import Seahorse from './Seahorse.jsx'
+import XRayRoom from './XRayRoom.jsx'
 
 export default function World() {
   // const {gl} = useThree()
@@ -123,6 +123,7 @@ export default function World() {
         <LectureTheatre></LectureTheatre>
         <MainConcourse></MainConcourse>
         <Seahorse></Seahorse>
+        <XRayRoom></XRayRoom>
       </Physics>
 
       {isPresenting && (
