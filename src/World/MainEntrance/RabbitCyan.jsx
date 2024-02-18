@@ -33,6 +33,9 @@ export default function RabbitCyan() {
   const rabbitWelcome = new Audio('/sounds/hoppy-welcome.mp3')
 
   const rabbitRef = useRef()
+  const mriButtonref = useRef()
+  const xrayButtonref = useRef()
+  const seahorseButtonref = useRef()
 
   useInteraction(rabbitRef, 'onSelect', (event) => {
     rabbitWelcome.play().then(() => {
@@ -58,9 +61,9 @@ export default function RabbitCyan() {
     <>
       <primitive ref={rabbitRef} object={rabbitcyan.scene} scale={0.5} position={[0, 0, -3]}></primitive>
       <group rotation-y={Math.PI} position={[0, 2.5, -3]}>
-        <FloatingButton height={0.5} width={1.1} position={[2, 0, 0]} text="Seahorse Ward"></FloatingButton>
-        <FloatingButton height={0.5} width={1.1} position={[0, 0, 0]} text="MRI Room"></FloatingButton>
-        <FloatingButton height={0.5} width={1.1} position={[-2, 0, 0]} text="X-Ray Room"></FloatingButton>
+        <FloatingButton ref={seahorseButtonref} height={0.5} width={1.1} position={[2, 0, 0]} text="Seahorse Ward"></FloatingButton>
+        <FloatingButton ref={mriButtonref} height={0.5} width={1.1} position={[0, 0, 0]} text="MRI Room"></FloatingButton>
+        <FloatingButton ref={xrayButtonref} height={0.5} width={1.1} position={[-2, 0, 0]} text="X-Ray Room"></FloatingButton>
       </group>
     </>
   )

@@ -1,11 +1,16 @@
 import { Float, Text } from '@react-three/drei'
+import React from 'react'
+import { useLoader } from '@react-three/fiber'
+import * as THREE from 'three'
 
-const FloatingButton = ({ height, width, position, text }) => {
+const FloatingButton = React.forwardRef(({ height, width, position, text }, ref) => {
+  const buttonTexture = useLoader(THREE.TextureLoader, '/textures/matcaps/cyan-matcap.png')
+
   return (
     <Float>
-      <mesh position={position}>
+      <mesh position={position} ref={ref}>
         <boxGeometry args={[width, height, 0.1]}></boxGeometry>
-        <meshStandardMaterial></meshStandardMaterial>
+        <meshMatcapMaterial matcap={buttonTexture}></meshMatcapMaterial>
         <group position={[0, 0, -0.06]} rotation-y={Math.PI}>
           <Text fontSize={0.15} color={'black'}>
             {text}
@@ -14,6 +19,6 @@ const FloatingButton = ({ height, width, position, text }) => {
       </mesh>
     </Float>
   )
-}
+})
 
 export default FloatingButton
