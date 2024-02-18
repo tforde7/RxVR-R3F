@@ -108,8 +108,8 @@ export default function World() {
   }, [])
 
   useEffect(() => {
-    console.log(player.position)
-  }, [player.position])
+    console.log(player)
+  }, [])
 
   useFrame((state, delta, XRFrame) => {
     if (XRFrame) {
