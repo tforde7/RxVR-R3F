@@ -22,7 +22,6 @@ export default function RabbitCyan() {
   //   ]
 
   const animations = useAnimations(rabbitcyan.animations, rabbitcyan.scene)
-  console.log(animations)
 
   const rabbitRef = useRef()
 

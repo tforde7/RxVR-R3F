@@ -48,10 +48,10 @@ export default function World() {
   backgroundMusic.loop = true
 
   // Set the initial position of the camera
-  const { camera } = useThree()
-  useEffect(() => {
-    camera.position.set(0, 1.8, -3)
-  }, [])
+  // const { camera } = useThree()
+  // useEffect(() => {
+  //   camera.position.set(0, 1.8, -3)
+  // }, [])
 
   const { cameraTarget, orbitControlsEnabled } = useControls({
     cameraTarget: {
@@ -101,6 +101,15 @@ export default function World() {
     // `XRSession` reference-space type. This can be configured as `referenceSpace` on <XR>. Default is `local-floor`
     referenceSpace,
   } = useXR()
+
+  useEffect(() => {
+    // console.log(player)
+    // player.position.set(0, 1.8, -3)
+  }, [])
+
+  useEffect(() => {
+    console.log(player.position)
+  }, [player])
 
   // console.log(controllers)
   // console.log(isPresenting)
