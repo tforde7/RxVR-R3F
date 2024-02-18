@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       volumeButton.innerHTML = '🔇'
       backgroundMusic.play()
+      backgroundMusic.loop = true
     }
     soundEnabled = !soundEnabled
   })
