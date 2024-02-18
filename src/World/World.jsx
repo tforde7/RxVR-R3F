@@ -111,6 +111,13 @@ export default function World() {
     console.log(player.position)
   }, [player.position])
 
+  useFrame((state, delta, XRFrame) => {
+    if (XRFrame) {
+      console.log(`Player position: ${player.position.x}, ${player.position.y}, ${player.position.z}`)
+      console.log(`Player camera position: ${player.children[0].position.x}, ${player.children[0].position.y}, ${player.children[0].position.z}`)
+    }
+  })
+
   // console.log(controllers)
   // console.log(isPresenting)
   // console.log(isHandTracking)
