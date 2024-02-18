@@ -109,7 +109,7 @@ export default function World() {
 
   useEffect(() => {
     console.log(player.position)
-  }, [player])
+  }, [player.position])
 
   // console.log(controllers)
   // console.log(isPresenting)
