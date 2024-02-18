@@ -2,7 +2,7 @@ import { useAnimations, useGLTF, useHelper } from '@react-three/drei'
 import { extend } from '@react-three/fiber'
 import { useLoader } from '@react-three/fiber'
 import { RigidBody } from '@react-three/rapier'
-import { Interactive, useInteraction } from '@react-three/xr'
+import { Interactive, useInteraction, useTeleportation } from '@react-three/xr'
 import { useEffect, useRef } from 'react'
 import { BoxHelper } from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
@@ -10,6 +10,10 @@ import FloatingButton from '../FloatingButton'
 import * as THREE from 'three'
 
 export default function RabbitCyan() {
+  const MRI_POSITION = [100, 0, 100]
+  const XRAY_POSITION = [-100, 0, -100]
+  const SEAHORSE_POSITION = [64, 0, -36]
+
   const rabbitcyan = useGLTF('/models/AnimalGuides/Rabbit Cyan.glb')
   //   rabbitcyan.scene.traverse((child) => {
   //     if (child.isMesh) {
@@ -36,6 +40,20 @@ export default function RabbitCyan() {
   const mriButtonref = useRef()
   const xrayButtonref = useRef()
   const seahorseButtonref = useRef()
+
+  const teleport = useTeleportation()
+
+  useInteraction(seahorseButtonref, 'onSelect', (event) => {
+    teleport(SEAHORSE_POSITION)
+  })
+
+  useInteraction(mriButtonref, 'onSelect', (event) => {
+    teleport(MRI_POSITION)
+  })
+
+  useInteraction(xrayButtonref, 'onSelect', (event) => {
+    teleport(XRAY_POSITION)
+  })
 
   useInteraction(rabbitRef, 'onSelect', (event) => {
     rabbitWelcome.play().then(() => {
