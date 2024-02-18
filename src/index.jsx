@@ -9,6 +9,27 @@ import StartVR from './World/StartVR.jsx'
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
+const backgroundMusic = new Audio('/sounds/ballerina.mp3')
+console.log(backgroundMusic.volume)
+backgroundMusic.volume = 0.1
+
+document.addEventListener('DOMContentLoaded', () => {
+  const volumeButton = document.getElementById('volume-button')
+  let soundEnabled = false
+  volumeButton.innerHTML = '🔊'
+
+  volumeButton.addEventListener('click', () => {
+    if (soundEnabled) {
+      volumeButton.innerHTML = '🔊'
+      backgroundMusic.pause()
+    } else {
+      volumeButton.innerHTML = '🔇'
+      backgroundMusic.play()
+    }
+    soundEnabled = !soundEnabled
+  })
+})
+
 root.render(
   <StrictMode>
     <Leva></Leva>

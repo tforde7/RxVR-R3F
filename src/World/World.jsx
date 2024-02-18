@@ -119,7 +119,7 @@ export default function World() {
       <ambientLight intensity={1.5}></ambientLight>
       <Sky></Sky>
       <Buildings></Buildings>
-      <Physics debug>
+      <Physics>
         {orbitControlsEnabled ? null : <Player></Player>}
         <GlobalGround></GlobalGround>
         <LargeBuilding></LargeBuilding>
