@@ -7,6 +7,7 @@ import { useEffect, useRef } from 'react'
 import { BoxHelper } from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import FloatingButton from '../FloatingButton'
+import * as THREE from 'three'
 
 export default function RabbitCyan() {
   const rabbitcyan = useGLTF('/models/AnimalGuides/Rabbit Cyan.glb')
@@ -22,18 +23,35 @@ export default function RabbitCyan() {
   //   ]
 
   const animations = useAnimations(rabbitcyan.animations, rabbitcyan.scene)
+  console.log(animations)
+  const ACTION_PREFIX = 'CharacterArmature|CharacterArmature|CharacterArmature|'
+  const idleAnimation = animations.actions[ACTION_PREFIX + 'Idle']
+  const talkingAnimation = animations.actions[ACTION_PREFIX + 'Sitting_Idle']
+  const waveAnimation = animations.actions[ACTION_PREFIX + 'Wave']
+  waveAnimation.loop = THREE.LoopOnce
+
+  const rabbitWelcome = new Audio('/sounds/hoppy-welcome.mp3')
 
   const rabbitRef = useRef()
 
   useInteraction(rabbitRef, 'onSelect', (event) => {
-    console.log('Rabbit Selected')
-    // trigger animation change, audio, etc.
+    rabbitWelcome.play().then(() => {
+      idleAnimation.stop()
+      waveAnimation.play()
+      waveAnimation.getMixer().addEventListener('finished', () => {
+        talkingAnimation.play()
+      })
+
+      rabbitWelcome.onended = () => {
+        talkingAnimation.stop()
+        // animate buttons here
+        idleAnimation.play()
+      }
+    })
   })
 
   useEffect(() => {
-    const ACTION_PREFIX = 'CharacterArmature|CharacterArmature|CharacterArmature|'
-    const idle = animations.actions[ACTION_PREFIX + 'Idle']
-    idle.play()
+    idleAnimation.play()
   }, [])
 
   return (
