@@ -48,10 +48,16 @@ export default function World() {
   backgroundMusic.loop = true
 
   // Set the initial position of the camera
-  const { camera } = useThree()
-  useEffect(() => {
-    camera.position.set(0, 1.8, -3)
-  }, [])
+  // const { camera } = useThree()
+  // const defaultcamera = camera
+  // useEffect(() => {
+  //   defaultcamera.position.set(0, 1.6, 0)
+  //   defaultcamera.rotation.set(0, 0, 0)
+  //   defaultcamera.updateProjectionMatrix()
+  //   console.log(defaultcamera)
+
+  //   // defaultcamera.lookAt(0, 1.6, -3)
+  // }, [])
 
   const { cameraTarget, orbitControlsEnabled } = useControls({
     cameraTarget: {
@@ -106,10 +112,21 @@ export default function World() {
     // console.log(player)
     // player.position.set(0, 1.8, -3)
     console.log('is presenting changes')
+    if (!isPresenting) {
+      player.position.set(0, 1.6, 0)
+    } else {
+      player.position.set(0, 0, 0)
+    }
+    // if (isPresenting) {
+    //   console.log(defaultcamera.position.x, defaultcamera.position.y, defaultcamera.position.z)
+    //   defaultcamera.position.set(0, 1.6, -3)
+    //   player.children[0].position.set(0, 1.6, -3)
+    // }
   }, [isPresenting])
 
   useEffect(() => {
-    console.log(player)
+    // console.log(player)
+    // player.position.set(0, 1.6, 0)
   }, [])
 
   useFrame((state, delta, XRFrame) => {
