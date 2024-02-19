@@ -10,8 +10,8 @@ import FloatingButton from '../FloatingButton'
 import * as THREE from 'three'
 
 export default function RabbitCyan() {
-  const MRI_POSITION = [100, 0, 100]
-  const XRAY_POSITION = [-100, 0, -100]
+  const MRI_POSITION = [150, 0, -80]
+  const XRAY_POSITION = [200, 0, -50]
   const SEAHORSE_POSITION = [64, 0, -36]
 
   const rabbitcyan = useGLTF('/models/AnimalGuides/Rabbit Cyan.glb')
