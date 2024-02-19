@@ -20,7 +20,7 @@ import RabbitCyan from './RabbitCyan.jsx'
 export default function World() {
   const { cameraTarget, orbitControlsEnabled } = useControls({
     cameraTarget: {
-      value: { x: 40, y: 0, z: -15 },
+      value: { x: 0, y: 0, z: 0 },
       step: 0.1,
     },
     orbitControlsEnabled: true,
