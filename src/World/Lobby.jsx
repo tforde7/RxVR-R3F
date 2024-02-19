@@ -195,8 +195,7 @@ const Lobby = () => {
         <Testrabbit></Testrabbit>
         <RabbitPigtails></RabbitPigtails>
         <TourGuide></TourGuide> */}
-        <Bed_w_acc></Bed_w_acc>
-        <Ultrasound></Ultrasound>
+        {/* <Ultrasound></Ultrasound> */}
         {/* <Waiting_chair></Waiting_chair> */}
         <CouchReception1 />
         <CouchReception2 />

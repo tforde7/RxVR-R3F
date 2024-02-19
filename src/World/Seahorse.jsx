@@ -3,6 +3,8 @@ import { useLoader } from '@react-three/fiber'
 import { RigidBody } from '@react-three/rapier'
 import { useControls } from 'leva'
 import * as THREE from 'three'
+import Bed_w_acc from './MainEntrance/room_bedandaccess'
+import BedRow from './MainEntrance/BedRow'
 
 const Seahorse = () => {
   const { seahorsePosition, rotation } = useControls('Seahorse', {
@@ -38,6 +40,21 @@ const Seahorse = () => {
         y: 0,
         z: 0,
       },
+      step: 0.01,
+    },
+  })
+
+  const { bedRow1Position, bedRow1Rotation } = useControls('Bed Row 1', {
+    bedRow1Position: {
+      value: {
+        x: 40.27,
+        y: 0,
+        z: -37.62,
+      },
+      step: 0.01,
+    },
+    bedRow1Rotation: {
+      value: -2.77,
       step: 0.01,
     },
   })
@@ -158,6 +175,7 @@ const Seahorse = () => {
           </RigidBody>
         </group>
       </group>
+      <BedRow position={[bedRow1Position.x, bedRow1Position.y, bedRow1Position.z]} rotation-y={bedRow1Rotation}></BedRow>
     </>
   )
 }
