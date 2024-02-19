@@ -59,6 +59,36 @@ const Seahorse = () => {
     },
   })
 
+  const { bedRow2Position, bedRow2Rotation } = useControls('Bed Row 2', {
+    bedRow2Position: {
+      value: {
+        x: 29.56,
+        y: 0,
+        z: -58.09,
+      },
+      step: 0.01,
+    },
+    bedRow2Rotation: {
+      value: -4.49,
+      step: 0.01,
+    },
+  })
+
+  const { bedRow3Position, bedRow3Rotation } = useControls('Bed Row 3', {
+    bedRow3Position: {
+      value: {
+        x: 61.94,
+        y: 0,
+        z: -52.73,
+      },
+      step: 0.01,
+    },
+    bedRow3Rotation: {
+      value: -2.78,
+      step: 0.01,
+    },
+  })
+
   const [floorColorTexture, floorAoTexture, floorDisplacementTexture, floorNormalTexture, floorRoughnessTexture] = useLoader(THREE.TextureLoader, [
     '/textures/indoor/floor/color.jpg',
     '/textures/indoor/floor/ao.jpg',
@@ -176,6 +206,8 @@ const Seahorse = () => {
         </group>
       </group>
       <BedRow position={[bedRow1Position.x, bedRow1Position.y, bedRow1Position.z]} rotation-y={bedRow1Rotation}></BedRow>
+      <BedRow position={[bedRow2Position.x, bedRow2Position.y, bedRow2Position.z]} rotation-y={bedRow2Rotation}></BedRow>
+      <BedRow position={[bedRow3Position.x, bedRow3Position.y, bedRow3Position.z]} rotation-y={bedRow3Rotation}></BedRow>
     </>
   )
 }
