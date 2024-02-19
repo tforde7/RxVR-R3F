@@ -11,8 +11,6 @@ import { RigidBody } from '@react-three/rapier'
 
 export function LargeBuilding(props) {
   const { nodes, materials } = useGLTF('/models/large-building/large-building-without-door-transformed.glb')
-  const buildingGeometry = nodes.large_buildingF.geometry
-  console.log(buildingGeometry)
 
   const { largeBuildingScale, largeBuilldingPosition, largeBuildingRotation } = useControls({
     largeBuildingScale: {

@@ -3,6 +3,15 @@ import { useLoader } from '@react-three/fiber'
 import { RigidBody } from '@react-three/rapier'
 import { useControls } from 'leva'
 import * as THREE from 'three'
+import CouchReception1 from './CouchReception1'
+import Plant1 from './Plant1'
+import Plant3 from './Plant3'
+import CoffeeTable from './Coffeetable'
+import Monitor from './Monitor1'
+import ChairCouchTable1 from './ChairCouchTable1'
+import ReceptionDesk from './ReceptionDesk'
+import ReceptionSign from './ReceptionSign'
+import Doctor2 from './Doctor2'
 
 const Lobby = () => {
   const { lobbyPosition, rotation } = useControls('Lobby', {
@@ -31,6 +40,24 @@ const Lobby = () => {
     doorPosition: {
       value: {
         x: -0.6,
+        y: -0.3,
+        z: 0,
+      },
+      step: 0.1,
+    },
+  })
+
+  const { lobbyCavitySize, lobbyCavityPosition } = useControls('Lobby Cavity', {
+    lobbyCavitySize: {
+      value: {
+        height: 3,
+        width: 15.7,
+      },
+      step: 0.1,
+    },
+    lobbyCavityPosition: {
+      value: {
+        x: -2.4,
         y: -0.3,
         z: 0,
       },
@@ -119,19 +146,38 @@ const Lobby = () => {
             </mesh>
             {/* back */}
             <mesh rotation-y={Math.PI / 2} position={[11, 0, 0]} material={wallMaterial}>
-              <planeGeometry args={[20.5, 3.6]} />
+              <Geometry>
+                <Base>
+                  <planeGeometry args={[20.5, 3.6]} />
+                </Base>
+                <Subtraction position={[lobbyCavityPosition.x, lobbyCavityPosition.y, lobbyCavityPosition.z]}>
+                  <boxGeometry args={[lobbyCavitySize.width, lobbyCavitySize.height, 1]}></boxGeometry>
+                </Subtraction>
+              </Geometry>
             </mesh>
             {/* ceiling */}
             <mesh rotation-x={Math.PI / 2} position={[0, 1.79, 0]} material={ceilingMaterial}>
               <planeGeometry args={[22, 20.5]} />
             </mesh>
             {/* floor */}
-            <mesh rotation-x={Math.PI / 2} position={[0, -1.8, 0]} material={floorMaterial}>
+            <mesh rotation-x={Math.PI / 2} position={[0, -1.82, 0]} material={floorMaterial}>
               <planeGeometry args={[22, 20.5]} />
             </mesh>
           </group>
         </group>
       </RigidBody>
+      {/* Models */}
+      <group>
+        <CouchReception1 />
+        <Plant1 />
+        <Plant3 />
+        <CoffeeTable />
+        <Monitor />
+        <ChairCouchTable1 />
+        <ReceptionDesk />
+        <ReceptionSign />
+        <Doctor2 />
+      </group>
     </>
   )
 }

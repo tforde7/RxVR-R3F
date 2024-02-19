@@ -1,46 +1,23 @@
-import { extend, useFrame, useLoader, useThree } from '@react-three/fiber'
-import { FirstPersonControls, OrbitControls, Sky, SoftShadows, useHelper } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
+import { OrbitControls, Sky } from '@react-three/drei'
 import { Perf } from 'r3f-perf'
-import { useEffect, useRef } from 'react'
-import * as THREE from 'three'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import MainEntrance from './MainEntrance/MainEntrance.jsx'
+import { useEffect } from 'react'
 import { Physics } from '@react-three/rapier'
 import Player from './Player/Player.jsx'
 import { useControls } from 'leva'
 import GlobalGround from './GlobalGround.jsx'
-import { Buildings } from './Buildings.jsx'
 import Sign2 from './Sign2.jsx'
-import GlassWall from './MainEntrance/GlassWall.jsx'
-import StartVR from './StartVR.jsx'
-import { TeleportationPlane, useController, useXR } from '@react-three/xr'
-import FrontWallUpper from './MainEntrance/FrontWallUpper.jsx'
-import Ecctrl from 'ecctrl'
+import { TeleportationPlane, useXR } from '@react-three/xr'
 import { LargeBuilding } from './Large-building.jsx'
 import LectureTheatre from './LectureTheatre.jsx'
 import Lobby from './Lobby.jsx'
+import MainConcourse from './MainConcourse.jsx'
+import Seahorse from './Seahorse.jsx'
+import XRayRoom from './XRayRoom.jsx'
+import MRIRoom from './MRIRoom.jsx'
+import RabbitCyan from './RabbitCyan.jsx'
 
 export default function World() {
-  // const {gl} = useThree()
-  // const three = useThree()
-  // console.log(three)
-  // const xrSession = gl.xr.getSession()
-  // const controller = gl.xr.getController(0)
-
-  // if (xrSession) {
-  //     console.log(xrSession)
-  //     xrSession.addEventListener('oninputsourceschange', (event) => {
-  //         console.log(event)
-  //     })
-
-  // }
-
-  // Set the initial position of the camera
-  const { camera } = useThree()
-  useEffect(() => {
-    camera.position.set(0, 1.8, -3)
-  }, [])
-
   const { cameraTarget, orbitControlsEnabled } = useControls({
     cameraTarget: {
       value: { x: 0, y: 0, z: 0 },
@@ -48,30 +25,6 @@ export default function World() {
     },
     orbitControlsEnabled: false,
   })
-
-  //   const orbitControls = useRef()
-
-  // const directionalLight = useRef()
-  // useHelper(directionalLight, THREE.DirectionalLightHelper, 1)
-
-  // const leftController = useController('left')
-  // if (leftController) {
-  //     console.log(leftController)
-
-  // }
-
-  // async createMotionController(xrInputSource) {
-
-  // }
-  // console.log(leftController)
-  // console.log(leftController?.inputSource.gamepad.axes)
-
-  // useFrame(() => {
-  //     if (leftController) {
-  //         console.log(leftController)
-  //     }
-
-  // })
 
   const {
     // An array of connected `XRController`
@@ -90,13 +43,20 @@ export default function World() {
     referenceSpace,
   } = useXR()
 
-  // console.log(controllers)
-  // console.log(isPresenting)
-  // console.log(isHandTracking)
-  // console.log(player)
-  // console.log(session)
-  // console.log(foveation)
-  // console.log(referenceSpace)
+  useEffect(() => {
+    if (!isPresenting) {
+      player.position.set(0, 1.6, 0)
+    } else {
+      player.position.set(0, 0, 0)
+    }
+  }, [isPresenting])
+
+  useFrame((state, delta, XRFrame) => {
+    // if (XRFrame) {
+    //   console.log(`Player position: ${player.position.x}, ${player.position.y}, ${player.position.z}`)
+    //   console.log(`Player camera position: ${player.children[0].position.x}, ${player.children[0].position.y}, ${player.children[0].position.z}`)
+    // }
+  })
 
   return (
     <>
@@ -104,20 +64,19 @@ export default function World() {
       {/* <Perf position="top-left"></Perf> */}
       {/* <OrbitControls makeDefault target={[cameraTarget.x, cameraTarget.y, cameraTarget.z]} enabled={orbitControlsEnabled}></OrbitControls> */}
       {/* <directionalLight ref={directionalLight} castShadow intensity={4.5} position={[1, 2, 3]}></directionalLight> */}
-      <ambientLight intensity={1.5}></ambientLight>
       <Sky></Sky>
-      <Buildings></Buildings>
       <Physics>
-        {orbitControlsEnabled ? null : <Player></Player>}
-        {/* <MainEntrance></MainEntrance>   */}
+        {/* {orbitControlsEnabled ? null : <Player></Player>} */}
         <GlobalGround></GlobalGround>
         <LargeBuilding></LargeBuilding>
-        {/* <Ecctrl></Ecctrl> */}
         <Sign2></Sign2>
         <Lobby></Lobby>
-        {/* <GlassWall></GlassWall> */}
-        {/* <FrontWallUpper></FrontWallUpper> */}
         <LectureTheatre></LectureTheatre>
+        <MainConcourse></MainConcourse>
+        <Seahorse></Seahorse>
+        <XRayRoom></XRayRoom>
+        <MRIRoom></MRIRoom>
+        <RabbitCyan></RabbitCyan>
       </Physics>
 
       {isPresenting && (
@@ -125,6 +84,7 @@ export default function World() {
           <TeleportationPlane rightHand />
         </>
       )}
+      {/* <Overlay></Overlay> */}
     </>
   )
 }
