@@ -57,7 +57,7 @@ export default function GlassWall ()
 
     const {glassWallPosition, glassWallRotation} = useControls({
         glassWallPosition: {
-            value: {x: -413, y: 24.6, z: -34.5},
+            value: {x: -413, y: 4.2, z: -34.5},
             step: 0.1
         },
         glassWallRotation: {
@@ -72,7 +72,7 @@ export default function GlassWall ()
     <RigidBody type="fixed" colliders='trimesh'>
     
         {/* <PivotControls anchor={[0,0,0]} scale={10}> */}
-        <mesh  position={[glassWallPosition.x, glassWallPosition.y, glassWallPosition.z]} rotation-y={glassWallRotation} scale={3}>
+        <mesh  position={[glassWallPosition.x, glassWallPosition.y, glassWallPosition.z]} rotation-y={glassWallRotation} scale={[3,0.5,3]}>
             <meshStandardMaterial
                 map={glassColorTexture}
                 normalMap={glassNormalTexture}
@@ -88,7 +88,7 @@ export default function GlassWall ()
                 <Base>
                     <boxGeometry args={[22, 16.2, 0.2]}></boxGeometry>
                 </Base>
-                <Subtraction scale={5} position={[0,-5.6,0]}>
+                <Subtraction scale={[5,15,5]} position={[0,-5.6,0]}>
                     <boxGeometry></boxGeometry>
                 </Subtraction>
             </Geometry>

@@ -39,7 +39,7 @@ const MainEntrance = () => {
             <Ultrasound></Ultrasound>
             <Bed_w_acc></Bed_w_acc>
             <Waiting_chair></Waiting_chair>
-            <Placeholder></Placeholder> 
+            <Placeholder></Placeholder>
             <XRayBoard></XRayBoard>
             <Rabbit></Rabbit>
             <RabbitPigtails></RabbitPigtails>
@@ -47,7 +47,7 @@ const MainEntrance = () => {
             <RabbitCyan></RabbitCyan>
             {/* <Testrabbit></Testrabbit> */}
             {/* <Couch></Couch> */}
-            
+
 
 
         </>
