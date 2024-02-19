@@ -30,7 +30,6 @@ import ChairCouchTable1 from './MainEntrance/ChairCouchTable1'
 import ChairCouchTable2 from './MainEntrance/ChairCouchTable2'
 import ReceptionDesk from './MainEntrance/ReceptionDesk'
 import ReceptionSign from './MainEntrance/ReceptionSign'
-import Doctor1 from './MainEntrance/Doctor1'
 import Doctor2 from './MainEntrance/Doctor2'
 import Doctor3 from './MainEntrance/Doctor3'
 
@@ -211,7 +210,6 @@ const Lobby = () => {
         <ChairCouchTable2 />
         <ReceptionDesk />
         <ReceptionSign />
-        <Doctor1 />
         <Doctor2 />
         {/* <Doctor3 /> */}
       </group>
