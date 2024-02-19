@@ -33,15 +33,21 @@ export default function RabbitCyan() {
   const teleport = useTeleportation()
 
   useInteraction(seahorseButtonref, 'onSelect', (event) => {
+    console.log('seahorse before teleport')
     teleport(SEAHORSE_POSITION)
+    console.log('seahorse after teleport')
   })
 
   useInteraction(mriButtonref, 'onSelect', (event) => {
+    console.log('mri before teleport')
     teleport(MRI_POSITION)
+    console.log('mri after teleport')
   })
 
   useInteraction(xrayButtonref, 'onSelect', (event) => {
+    console.log('xray before teleport')
     teleport(XRAY_POSITION)
+    console.log('xray after teleport')
   })
 
   useInteraction(rabbitRef, 'onSelect', (event) => {
