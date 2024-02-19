@@ -64,7 +64,6 @@ export default function World() {
       <Perf position="top-left"></Perf>
       <OrbitControls makeDefault target={[cameraTarget.x, cameraTarget.y, cameraTarget.z]} enabled={orbitControlsEnabled}></OrbitControls>
       {/* <directionalLight ref={directionalLight} castShadow intensity={4.5} position={[1, 2, 3]}></directionalLight> */}
-      <ambientLight intensity={1.5}></ambientLight>
       <Sky></Sky>
       <Physics>
         {orbitControlsEnabled ? null : <Player></Player>}

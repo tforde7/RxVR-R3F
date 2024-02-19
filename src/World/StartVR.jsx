@@ -13,7 +13,7 @@ const StartVR = () => {
       <Canvas>
         <XR>
           <World></World>
-          <ambientLight />
+          <ambientLight intensity={2.5} />
           <Controllers />
         </XR>
       </Canvas>
