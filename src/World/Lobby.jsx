@@ -213,7 +213,7 @@ const Lobby = () => {
         <ReceptionSign />
         <Doctor1 />
         <Doctor2 />
-        <Doctor3 />
+        {/* <Doctor3 /> */}
       </group>
     </>
   )
