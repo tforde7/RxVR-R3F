@@ -3,35 +3,35 @@ import { useLoader } from '@react-three/fiber'
 import { RigidBody } from '@react-three/rapier'
 import { useControls } from 'leva'
 import * as THREE from 'three'
-import MRI from './MainEntrance/Mri'
+import MRI from './Mri'
 import Panda from './MainEntrance/Panda'
 import Placeholder from './MainEntrance/placeholder'
 import Rabbit from './MainEntrance/rabbit'
-import RabbitCyan from './MainEntrance/RabbitCyan'
+import RabbitCyan from './RabbitCyan'
 import RabbitPigtails from './MainEntrance/RabbitPigtails'
-import Bed_w_acc from './MainEntrance/room_bedandaccess'
+import Bed_w_acc from './room_bedandaccess'
 import Testrabbit from './MainEntrance/testRabbit'
 import TourGuide from './MainEntrance/TourGuide'
 import Ultrasound from './MainEntrance/ultrasound'
 import Waiting_chair from './MainEntrance/waiting_chair'
-import XRayBoard from './MainEntrance/XrayBoard'
-import CouchReception1 from './MainEntrance/CouchReception1'
+import XRayBoard from './XrayBoard'
+import CouchReception1 from './CouchReception1'
 import CouchReception2 from './MainEntrance/CouchReception2'
 import CouchReception3 from './MainEntrance/CouchReception3'
 import CouchReception4 from './MainEntrance/CouchReception4'
 // import CouchReception5 from './MainEntrance/CouchReception5'
-import Plant1 from './MainEntrance/Plant1'
+import Plant1 from './Plant1'
 import Plant2 from './MainEntrance/Plant2'
-import Plant3 from './MainEntrance/Plant3'
-import CoffeeTable from './MainEntrance/Coffeetable'
+import Plant3 from './Plant3'
+import CoffeeTable from './Coffeetable'
 import CoffeeTable2 from './MainEntrance/CoffeeTable2'
-import Monitor from './MainEntrance/Monitor1'
-import ChairCouchTable1 from './MainEntrance/ChairCouchTable1'
+import Monitor from './Monitor1'
+import ChairCouchTable1 from './ChairCouchTable1'
 import ChairCouchTable2 from './MainEntrance/ChairCouchTable2'
-import ReceptionDesk from './MainEntrance/ReceptionDesk'
-import ReceptionSign from './MainEntrance/ReceptionSign'
+import ReceptionDesk from './ReceptionDesk'
+import ReceptionSign from './ReceptionSign'
 import Doctor1 from './MainEntrance/Doctor1'
-import Doctor2 from './MainEntrance/Doctor2'
+import Doctor2 from './Doctor2'
 import Doctor3 from './MainEntrance/Doctor3'
 
 const Lobby = () => {
@@ -200,23 +200,23 @@ const Lobby = () => {
         <Ultrasound></Ultrasound>
         {/* <Waiting_chair></Waiting_chair> */}
         <XRayBoard></XRayBoard>
-        <CouchReception1/>
-        <CouchReception2/>
-        <CouchReception3/>
-        <CouchReception4/>
-        <Plant1/>
-        <Plant2/>
-        <Plant3/>
-        <CoffeeTable/>
-        <CoffeeTable2/>
-        <Monitor/>
-        <ChairCouchTable1/>
-        <ChairCouchTable2/>
-        <ReceptionDesk/>
-        <ReceptionSign/>
-        <Doctor1/>
-        <Doctor2/>
-        <Doctor3/>
+        <CouchReception1 />
+        <CouchReception2 />
+        <CouchReception3 />
+        <CouchReception4 />
+        <Plant1 />
+        <Plant2 />
+        <Plant3 />
+        <CoffeeTable />
+        <CoffeeTable2 />
+        <Monitor />
+        <ChairCouchTable1 />
+        <ChairCouchTable2 />
+        <ReceptionDesk />
+        <ReceptionSign />
+        <Doctor1 />
+        <Doctor2 />
+        <Doctor3 />
       </group>
     </>
   )

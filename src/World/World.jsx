@@ -23,7 +23,7 @@ import MainConcourse from './MainConcourse.jsx'
 import Seahorse from './Seahorse.jsx'
 import XRayRoom from './XRayRoom.jsx'
 import MRIRoom from './MRIRoom.jsx'
-import RabbitCyan from './MainEntrance/RabbitCyan.jsx'
+import RabbitCyan from './RabbitCyan.jsx'
 import Overlay from '../Overlay.jsx'
 
 export default function World() {
