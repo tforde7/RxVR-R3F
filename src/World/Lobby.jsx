@@ -198,7 +198,6 @@ const Lobby = () => {
         <Bed_w_acc></Bed_w_acc>
         <Ultrasound></Ultrasound>
         {/* <Waiting_chair></Waiting_chair> */}
-        <XRayBoard></XRayBoard>
         <CouchReception1 />
         <CouchReception2 />
         <CouchReception3 />
