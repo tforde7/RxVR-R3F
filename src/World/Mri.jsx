@@ -12,7 +12,7 @@ export default function MRI() {
   return (
     <>
       <RigidBody colliders="hull" type="fixed">
-        <primitive object={mri.scene}> </primitive>
+        <primitive object={mri.scene}></primitive>
       </RigidBody>
     </>
   )
