@@ -15,16 +15,6 @@ export default function RabbitCyan() {
   const SEAHORSE_POSITION = [64, 0, -36]
 
   const rabbitcyan = useGLTF('/models/AnimalGuides/Rabbit Cyan.glb')
-  //   rabbitcyan.scene.traverse((child) => {
-  //     if (child.isMesh) {
-  //       child.castShadow = true
-  //       child.receiveShadow = true
-  //     }
-  //   })
-
-  //   const sounds = [
-  //     new Audio('/sounds')
-  //   ]
 
   const animations = useAnimations(rabbitcyan.animations, rabbitcyan.scene)
   const ACTION_PREFIX = 'CharacterArmature|CharacterArmature|CharacterArmature|'

@@ -4,7 +4,6 @@ import { Perf } from 'r3f-perf'
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import MainEntrance from './MainEntrance/MainEntrance.jsx'
 import { Physics } from '@react-three/rapier'
 import Player from './Player/Player.jsx'
 import { useControls } from 'leva'
@@ -43,7 +42,7 @@ export default function World() {
 
   const { cameraTarget, orbitControlsEnabled } = useControls({
     cameraTarget: {
-      value: { x: 40, y: 0, z: -15 },
+      value: { x: 0, y: 0, z: 0 },
       step: 0.1,
     },
     orbitControlsEnabled: true,
@@ -107,15 +106,12 @@ export default function World() {
 
   return (
     <>
-      {/* <SoftShadows size={25} samples={10} focus={0} ></SoftShadows> */}
       <Perf position="top-left"></Perf>
       <OrbitControls makeDefault target={[cameraTarget.x, cameraTarget.y, cameraTarget.z]} enabled={orbitControlsEnabled}></OrbitControls>
-      {/* <directionalLight ref={directionalLight} castShadow intensity={4.5} position={[1, 2, 3]}></directionalLight> */}
-      <ambientLight intensity={1.5}></ambientLight>
       <Sky></Sky>
       <Buildings></Buildings>
       <Physics>
-        {orbitControlsEnabled ? null : <Player></Player>}
+        {/* {orbitControlsEnabled ? null : <Player></Player>} */}
         <GlobalGround></GlobalGround>
         <LargeBuilding></LargeBuilding>
         <Sign2></Sign2>
@@ -133,7 +129,6 @@ export default function World() {
           <TeleportationPlane rightHand />
         </>
       )}
-      {/* <Overlay></Overlay> */}
     </>
   )
 }

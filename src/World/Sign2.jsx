@@ -25,17 +25,17 @@ export default function Sign2() {
       <group position={[position.x, position.y, position.z]} rotation-y={rotation} scale={0.33}>
         <Text3D font="./fonts/helvetiker_regular.typeface.json" position={[0, 0, 0]} size={textSize}>
           <meshStandardMaterial color={'silver'} metalness={0.85}></meshStandardMaterial>
-          CORK
+          {'CORK'}
         </Text3D>
 
         <Text3D font="./fonts/helvetiker_regular.typeface.json" position={[0, -2.5, 0]} size={textSize}>
           <meshStandardMaterial color={'silver'} metalness={0.85}></meshStandardMaterial>
-          UNIVERSITY
+          {'UNIVERSITY'}
         </Text3D>
 
         <Text3D font="./fonts/helvetiker_regular.typeface.json" position={[0, -5, 0]} size={textSize}>
           <meshStandardMaterial color={'silver'} metalness={0.85}></meshStandardMaterial>
-          HOSPITAL
+          {'HOSPITAL'}
         </Text3D>
       </group>
     </>

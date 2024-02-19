@@ -110,18 +110,6 @@ const MainConcourse = () => {
             <mesh position={[0, 0, 8]} material={wallMaterial}>
               <planeGeometry args={[60, 3.6]} />
             </mesh>
-            {/* front */}
-            {/* <mesh rotation-y={Math.PI / 2} position={[-30, 0, 0]} material={wallMaterial}>
-              <Geometry showOperations useGroups>
-                <Base>
-                  <planeGeometry args={[16, 3.6]} />
-                </Base>
-                <Subtraction position={[lobbyCavityPosition.x, lobbyCavityPosition.y, lobbyCavityPosition.z]}>
-                  <boxGeometry args={[lobbyCavitySize.width, lobbyCavitySize.height, 1]}></boxGeometry>
-                  <meshStandardMaterial color={'red'} wireframe></meshStandardMaterial>
-                </Subtraction>
-              </Geometry>
-            </mesh> */}
             {/* back */}
             <mesh rotation-y={Math.PI / 2} position={[30, 0, 0]} material={wallMaterial}>
               <planeGeometry args={[16, 3.6]} />

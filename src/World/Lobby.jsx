@@ -188,14 +188,6 @@ const Lobby = () => {
       </RigidBody>
       {/* Models */}
       <group>
-        {/* <Panda></Panda>
-        <Rabbit></Rabbit>
-        <RabbitCyan></RabbitCyan>
-        <Testrabbit></Testrabbit>
-        <RabbitPigtails></RabbitPigtails>
-        <TourGuide></TourGuide> */}
-        {/* <Ultrasound></Ultrasound> */}
-        {/* <Waiting_chair></Waiting_chair> */}
         <CouchReception1 />
         <CouchReception2 />
         <CouchReception3 />
