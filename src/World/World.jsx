@@ -46,7 +46,7 @@ export default function World() {
 
   const { cameraTarget, orbitControlsEnabled } = useControls({
     cameraTarget: {
-      value: { x: 0, y: 0, z: 0 },
+      value: { x: 40, y: 0, z: -15 },
       step: 0.1,
     },
     orbitControlsEnabled: true,
