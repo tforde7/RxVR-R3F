@@ -189,7 +189,6 @@ const Lobby = () => {
       </RigidBody>
       {/* Models */}
       <group>
-        <MRI></MRI>
         {/* <Panda></Panda>
         <Rabbit></Rabbit>
         <RabbitCyan></RabbitCyan>
@@ -200,23 +199,23 @@ const Lobby = () => {
         <Ultrasound></Ultrasound>
         {/* <Waiting_chair></Waiting_chair> */}
         <XRayBoard></XRayBoard>
-        <CouchReception1/>
-        <CouchReception2/>
-        <CouchReception3/>
-        <CouchReception4/>
-        <Plant1/>
-        <Plant2/>
-        <Plant3/>
-        <CoffeeTable/>
-        <CoffeeTable2/>
-        <Monitor/>
-        <ChairCouchTable1/>
-        <ChairCouchTable2/>
-        <ReceptionDesk/>
-        <ReceptionSign/>
-        <Doctor1/>
-        <Doctor2/>
-        <Doctor3/>
+        <CouchReception1 />
+        <CouchReception2 />
+        <CouchReception3 />
+        <CouchReception4 />
+        <Plant1 />
+        <Plant2 />
+        <Plant3 />
+        <CoffeeTable />
+        <CoffeeTable2 />
+        <Monitor />
+        <ChairCouchTable1 />
+        <ChairCouchTable2 />
+        <ReceptionDesk />
+        <ReceptionSign />
+        <Doctor1 />
+        <Doctor2 />
+        <Doctor3 />
       </group>
     </>
   )
