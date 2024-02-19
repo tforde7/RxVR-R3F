@@ -3,7 +3,6 @@ import { useLoader } from '@react-three/fiber'
 import { RigidBody } from '@react-three/rapier'
 import { useControls } from 'leva'
 import * as THREE from 'three'
-import Couch from './MainEntrance/couch'
 import MRI from './MainEntrance/Mri'
 import Panda from './MainEntrance/Panda'
 import Placeholder from './MainEntrance/placeholder'
@@ -16,6 +15,24 @@ import TourGuide from './MainEntrance/TourGuide'
 import Ultrasound from './MainEntrance/ultrasound'
 import Waiting_chair from './MainEntrance/waiting_chair'
 import XRayBoard from './MainEntrance/XrayBoard'
+import CouchReception1 from './MainEntrance/CouchReception1'
+import CouchReception2 from './MainEntrance/CouchReception2'
+import CouchReception3 from './MainEntrance/CouchReception3'
+import CouchReception4 from './MainEntrance/CouchReception4'
+// import CouchReception5 from './MainEntrance/CouchReception5'
+import Plant1 from './MainEntrance/Plant1'
+import Plant2 from './MainEntrance/Plant2'
+import Plant3 from './MainEntrance/Plant3'
+import CoffeeTable from './MainEntrance/Coffeetable'
+import CoffeeTable2 from './MainEntrance/CoffeeTable2'
+import Monitor from './MainEntrance/Monitor1'
+import ChairCouchTable1 from './MainEntrance/ChairCouchTable1'
+import ChairCouchTable2 from './MainEntrance/ChairCouchTable2'
+import ReceptionDesk from './MainEntrance/ReceptionDesk'
+import ReceptionSign from './MainEntrance/ReceptionSign'
+import Doctor1 from './MainEntrance/Doctor1'
+import Doctor2 from './MainEntrance/Doctor2'
+import Doctor3 from './MainEntrance/Doctor3'
 
 const Lobby = () => {
   const { lobbyPosition, rotation } = useControls('Lobby', {
@@ -171,21 +188,36 @@ const Lobby = () => {
         </group>
       </RigidBody>
       {/* Models */}
-      {/* <group>
-        <Couch></Couch>
+      <group>
         <MRI></MRI>
-        <Panda></Panda>
+        {/* <Panda></Panda>
         <Rabbit></Rabbit>
         <RabbitCyan></RabbitCyan>
-        <RabbitPigtails></RabbitPigtails>
-        <Bed_w_acc></Bed_w_acc>
         <Testrabbit></Testrabbit>
-        <TourGuide></TourGuide>
+        <RabbitPigtails></RabbitPigtails>
+        <TourGuide></TourGuide> */}
+        <Bed_w_acc></Bed_w_acc>
         <Ultrasound></Ultrasound>
-        <Waiting_chair></Waiting_chair>
+        {/* <Waiting_chair></Waiting_chair> */}
         <XRayBoard></XRayBoard>
-
-      </group> */}
+        <CouchReception1/>
+        <CouchReception2/>
+        <CouchReception3/>
+        <CouchReception4/>
+        <Plant1/>
+        <Plant2/>
+        <Plant3/>
+        <CoffeeTable/>
+        <CoffeeTable2/>
+        <Monitor/>
+        <ChairCouchTable1/>
+        <ChairCouchTable2/>
+        <ReceptionDesk/>
+        <ReceptionSign/>
+        <Doctor1/>
+        <Doctor2/>
+        <Doctor3/>
+      </group>
     </>
   )
 }
