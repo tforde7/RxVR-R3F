@@ -27,7 +27,6 @@ export default function RabbitCyan() {
   //   ]
 
   const animations = useAnimations(rabbitcyan.animations, rabbitcyan.scene)
-  console.log(animations)
   const ACTION_PREFIX = 'CharacterArmature|CharacterArmature|CharacterArmature|'
   const idleAnimation = animations.actions[ACTION_PREFIX + 'Idle']
   const talkingAnimation = animations.actions[ACTION_PREFIX + 'Sitting_Idle']
