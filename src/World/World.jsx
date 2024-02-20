@@ -10,12 +10,12 @@ import Sign2 from './Sign2.jsx'
 import { TeleportationPlane, useXR } from '@react-three/xr'
 import { LargeBuilding } from './Large-building.jsx'
 import LectureTheatre from './LectureTheatre.jsx'
-import Lobby from './Lobby.jsx'
 import MainConcourse from './MainConcourse.jsx'
 import Seahorse from './Seahorse.jsx'
 import XRayRoom from './XRayRoom.jsx'
 import MRIRoom from './MRIRoom.jsx'
 import RabbitCyan from './RabbitCyan.jsx'
+import Lobby from './Lobby/Lobby.jsx'
 
 export default function World() {
   const { cameraTarget, orbitControlsEnabled } = useControls({
