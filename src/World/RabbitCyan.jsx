@@ -13,12 +13,15 @@ import teleportObject from '../util/teleportObject'
 export default function RabbitCyan() {
   const MRI_POSITION = [150, 0, -80]
   const rabbitMriPosition = [MRI_POSITION[0], MRI_POSITION[1], MRI_POSITION[2] - 4]
+  const buttonMriPosition = [rabbitMriPosition[0], rabbitMriPosition[1] + 2.5, rabbitMriPosition[2]]
 
   const XRAY_POSITION = [200, 0, -50]
   const rabbitXrayPosition = [XRAY_POSITION[0], XRAY_POSITION[1], XRAY_POSITION[2] - 4]
+  const buttonXrayPosition = [rabbitXrayPosition[0], rabbitXrayPosition[1] + 2.5, rabbitXrayPosition[2]]
 
   const SEAHORSE_POSITION = [64, 0, -36]
   const rabbitSeahorsePosition = [SEAHORSE_POSITION[0], SEAHORSE_POSITION[1], SEAHORSE_POSITION[2] - 4]
+  const buttonSeahorsePosition = [rabbitSeahorsePosition[0], rabbitSeahorsePosition[1] + 2.5, rabbitSeahorsePosition[2]]
 
   const rabbitcyan = useGLTF('/models/AnimalGuides/Rabbit Cyan.glb')
 
@@ -51,6 +54,7 @@ export default function RabbitCyan() {
     buttonGroupRef.current.visible = false
     teleport(SEAHORSE_POSITION)
     teleportObject(rabbitRef.current, rabbitSeahorsePosition)
+    teleportObject(buttonGroupRef.current, buttonSeahorsePosition)
   })
 
   useInteraction(mriButtonref, 'onSelect', (event) => {
@@ -60,6 +64,7 @@ export default function RabbitCyan() {
     buttonGroupRef.current.visible = false
     teleport(MRI_POSITION)
     teleportObject(rabbitRef.current, rabbitMriPosition)
+    teleportObject(buttonGroupRef.current, buttonMriPosition)
   })
 
   useInteraction(xrayButtonref, 'onSelect', (event) => {
@@ -68,8 +73,8 @@ export default function RabbitCyan() {
     }
     buttonGroupRef.current.visible = false
     teleport(XRAY_POSITION)
-    const rabbitXrayPosition = [XRAY_POSITION[0], XRAY_POSITION[1], XRAY_POSITION[2] - 4]
     teleportObject(rabbitRef.current, rabbitXrayPosition)
+    teleportObject(buttonGroupRef.current, buttonXrayPosition)
   })
 
   useInteraction(rabbitRef, 'onSelect', (event) => {
@@ -84,6 +89,7 @@ export default function RabbitCyan() {
         whereToNextDialogue.play()
         whereToNextDialogue.onended = () => {
           //show buttons
+          buttonGroupRef.current.visible = true
         }
       }
     } else if (rabbitRef.current.position.z === rabbitMriPosition[2]) {
@@ -93,6 +99,7 @@ export default function RabbitCyan() {
         whereToNextDialogue.play()
         whereToNextDialogue.onended = () => {
           //show buttons
+          buttonGroupRef.current.visible = true
         }
       }
     } else if (rabbitRef.current.position.z === rabbitXrayPosition[2]) {
@@ -102,6 +109,7 @@ export default function RabbitCyan() {
         whereToNextDialogue.play()
         whereToNextDialogue.onended = () => {
           //show buttons
+          buttonGroupRef.current.visible = true
         }
       }
     } else {
