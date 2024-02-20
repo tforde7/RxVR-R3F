@@ -8,6 +8,7 @@ import { BoxHelper } from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import FloatingButton from './FloatingButton'
 import * as THREE from 'three'
+import teleportObject from '../util/teleportObject'
 
 export default function RabbitCyan() {
   const MRI_POSITION = [150, 0, -80]
@@ -40,6 +41,8 @@ export default function RabbitCyan() {
     }
     buttonGroupRef.current.visible = false
     teleport(SEAHORSE_POSITION)
+    const rabbitSeahorsePosition = [SEAHORSE_POSITION[0], SEAHORSE_POSITION[1], SEAHORSE_POSITION[2] + 3]
+    teleportObject(rabbitRef.current, rabbitSeahorsePosition)
   })
 
   useInteraction(mriButtonref, 'onSelect', (event) => {
@@ -48,6 +51,8 @@ export default function RabbitCyan() {
     }
     buttonGroupRef.current.visible = false
     teleport(MRI_POSITION)
+    const rabbitMriPosition = [MRI_POSITION[0], MRI_POSITION[1], MRI_POSITION[2] + 3]
+    teleportObject(rabbitRef.current, rabbitMriPosition)
   })
 
   useInteraction(xrayButtonref, 'onSelect', (event) => {
@@ -56,6 +61,8 @@ export default function RabbitCyan() {
     }
     buttonGroupRef.current.visible = false
     teleport(XRAY_POSITION)
+    const rabbitXrayPosition = [XRAY_POSITION[0], XRAY_POSITION[1], XRAY_POSITION[2] + 3]
+    teleportObject(rabbitRef.current, rabbitXrayPosition)
   })
 
   useInteraction(rabbitRef, 'onSelect', (event) => {
