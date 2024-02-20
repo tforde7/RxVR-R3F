@@ -10,7 +10,7 @@ const StartVR = () => {
   return (
     <>
       <VRButton />
-      <Canvas>
+      <Canvas frameloop="demand">
         <XR>
           <World></World>
           <ambientLight intensity={2.5} />
