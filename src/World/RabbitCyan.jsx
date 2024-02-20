@@ -3,7 +3,7 @@ import { extend } from '@react-three/fiber'
 import { useLoader } from '@react-three/fiber'
 import { RigidBody } from '@react-three/rapier'
 import { Interactive, useInteraction, useTeleportation } from '@react-three/xr'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { BoxHelper } from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import FloatingButton from './FloatingButton'
@@ -14,6 +14,7 @@ export default function RabbitCyan() {
   const XRAY_POSITION = [200, 0, -50]
   const SEAHORSE_POSITION = [64, 0, -36]
 
+  const [showButtons, setShowButtons] = useState(false)
   const rabbitcyan = useGLTF('/models/AnimalGuides/Rabbit Cyan.glb')
 
   const animations = useAnimations(rabbitcyan.animations, rabbitcyan.scene)
@@ -37,6 +38,7 @@ export default function RabbitCyan() {
     if (event.target.inputSource.handedness === 'right') {
       return
     }
+    setShowButtons(false)
     teleport(SEAHORSE_POSITION)
   })
 
@@ -44,6 +46,7 @@ export default function RabbitCyan() {
     if (event.target.inputSource.handedness === 'right') {
       return
     }
+    setShowButtons(false)
     teleport(MRI_POSITION)
   })
 
@@ -51,6 +54,7 @@ export default function RabbitCyan() {
     if (event.target.inputSource.handedness === 'right') {
       return
     }
+    setShowButtons(false)
     teleport(XRAY_POSITION)
   })
 
@@ -68,6 +72,7 @@ export default function RabbitCyan() {
       rabbitWelcome.onended = () => {
         talkingAnimation.stop()
         // animate buttons here
+        setShowButtons(true)
         idleAnimation.play()
       }
     })
@@ -80,11 +85,13 @@ export default function RabbitCyan() {
   return (
     <>
       <primitive ref={rabbitRef} object={rabbitcyan.scene} scale={0.5} position={[0, 0, -3]}></primitive>
-      <group rotation-y={Math.PI} position={[0, 2.5, -3]}>
-        <FloatingButton ref={seahorseButtonref} height={0.5} width={1.1} position={[2, 0, 0]} text="Seahorse Ward"></FloatingButton>
-        <FloatingButton ref={mriButtonref} height={0.5} width={1.1} position={[0, 0, 0]} text="MRI Room"></FloatingButton>
-        <FloatingButton ref={xrayButtonref} height={0.5} width={1.1} position={[-2, 0, 0]} text="X-Ray Room"></FloatingButton>
-      </group>
+      {showButtons && (
+        <group rotation-y={Math.PI} position={[0, 2.5, -3]}>
+          <FloatingButton ref={seahorseButtonref} height={0.5} width={1.1} position={[2, 0, 0]} text="Seahorse Ward"></FloatingButton>
+          <FloatingButton ref={mriButtonref} height={0.5} width={1.1} position={[0, 0, 0]} text="MRI Room"></FloatingButton>
+          <FloatingButton ref={xrayButtonref} height={0.5} width={1.1} position={[-2, 0, 0]} text="X-Ray Room"></FloatingButton>
+        </group>
+      )}
     </>
   )
 }
