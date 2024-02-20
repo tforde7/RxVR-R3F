@@ -34,7 +34,7 @@ export default function RabbitCyan() {
   const seahorseOutpatientDialogue = new Audio('/sounds/hoppy-seahorse-outpatient.mp3')
   const whereToNextDialogue = new Audio('/sounds/hoppy-where-to-next.mp3')
   // const mriDialogue = new Audio('/sounds/hoppy-mri.mp3')
-  // const xrayDialogue = new Audio('/sounds/hoppy-xray.mp3')
+  const xrayDialogue = new Audio('/sounds/hoppy-xray.mp3')
 
   const rabbitRef = useRef()
   const mriButtonref = useRef()
@@ -90,6 +90,13 @@ export default function RabbitCyan() {
       // play mri clip
     } else if (rabbitRef.current.position.z === rabbitXrayPosition[2]) {
       // play xray clip
+      xrayDialogue.play()
+      xrayDialogue.onended = () => {
+        whereToNextDialogue.play()
+        whereToNextDialogue.onended = () => {
+          //show buttons
+        }
+      }
     } else {
       // play welcome clip
       rabbitWelcome.play().then(() => {
