@@ -41,14 +41,23 @@ export default function RabbitCyan() {
   })
 
   useInteraction(mriButtonref, 'onSelect', (event) => {
+    if (event.target.inputSource.handedness === 'right') {
+      return
+    }
     teleport(MRI_POSITION)
   })
 
   useInteraction(xrayButtonref, 'onSelect', (event) => {
+    if (event.target.inputSource.handedness === 'right') {
+      return
+    }
     teleport(XRAY_POSITION)
   })
 
   useInteraction(rabbitRef, 'onSelect', (event) => {
+    if (event.target.inputSource.handedness === 'right') {
+      return
+    }
     rabbitWelcome.play().then(() => {
       idleAnimation.stop()
       waveAnimation.play()
