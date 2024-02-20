@@ -2,6 +2,7 @@ import { useAnimations, useGLTF } from '@react-three/drei'
 import { RigidBody } from '@react-three/rapier'
 import React from 'react'
 import { useRef } from 'react'
+import { useInteraction } from '@react-three/xr'
 
 export default function Doctor2() {
   const doctor = useGLTF('/models/doctor_-_sketchfab_weekly_-_13_mar23/scene.gltf')
