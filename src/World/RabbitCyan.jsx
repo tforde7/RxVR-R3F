@@ -12,8 +12,13 @@ import teleportObject from '../util/teleportObject'
 
 export default function RabbitCyan() {
   const MRI_POSITION = [150, 0, -80]
+  const rabbitMriPosition = [MRI_POSITION[0], MRI_POSITION[1], MRI_POSITION[2] - 4]
+
   const XRAY_POSITION = [200, 0, -50]
+  const rabbitXrayPosition = [XRAY_POSITION[0], XRAY_POSITION[1], XRAY_POSITION[2] - 4]
+
   const SEAHORSE_POSITION = [64, 0, -36]
+  const rabbitSeahorsePosition = [SEAHORSE_POSITION[0], SEAHORSE_POSITION[1], SEAHORSE_POSITION[2] - 4]
 
   const rabbitcyan = useGLTF('/models/AnimalGuides/Rabbit Cyan.glb')
 
@@ -26,6 +31,9 @@ export default function RabbitCyan() {
   waveAnimation.loop = THREE.LoopOnce
 
   const rabbitWelcome = new Audio('/sounds/hoppy-welcome.mp3')
+  const seahorseOutpatientDialogue = new Audio('/sounds/hoppy-seahorse-outpatient.mp3')
+  // const mriDialogue = new Audio('/sounds/hoppy-mri.mp3')
+  // const xrayDialogue = new Audio('/sounds/hoppy-xray.mp3')
 
   const rabbitRef = useRef()
   const mriButtonref = useRef()
@@ -41,7 +49,6 @@ export default function RabbitCyan() {
     }
     buttonGroupRef.current.visible = false
     teleport(SEAHORSE_POSITION)
-    const rabbitSeahorsePosition = [SEAHORSE_POSITION[0], SEAHORSE_POSITION[1], SEAHORSE_POSITION[2] - 3]
     teleportObject(rabbitRef.current, rabbitSeahorsePosition)
   })
 
@@ -51,7 +58,6 @@ export default function RabbitCyan() {
     }
     buttonGroupRef.current.visible = false
     teleport(MRI_POSITION)
-    const rabbitMriPosition = [MRI_POSITION[0], MRI_POSITION[1], MRI_POSITION[2] - 3]
     teleportObject(rabbitRef.current, rabbitMriPosition)
   })
 
@@ -61,7 +67,7 @@ export default function RabbitCyan() {
     }
     buttonGroupRef.current.visible = false
     teleport(XRAY_POSITION)
-    const rabbitXrayPosition = [XRAY_POSITION[0], XRAY_POSITION[1], XRAY_POSITION[2] - 3]
+    const rabbitXrayPosition = [XRAY_POSITION[0], XRAY_POSITION[1], XRAY_POSITION[2] - 4]
     teleportObject(rabbitRef.current, rabbitXrayPosition)
   })
 
@@ -69,20 +75,30 @@ export default function RabbitCyan() {
     if (event.target.inputSource.handedness === 'right') {
       return
     }
-    rabbitWelcome.play().then(() => {
-      idleAnimation.stop()
-      waveAnimation.play()
-      waveAnimation.getMixer().addEventListener('finished', () => {
-        talkingAnimation.play()
-      })
 
-      rabbitWelcome.onended = () => {
-        talkingAnimation.stop()
-        // animate buttons here
-        buttonGroupRef.current.visible = true
-        idleAnimation.play()
-      }
-    })
+    if (rabbitRef.current.position.z === rabbitSeahorsePosition[2]) {
+      // play seahorse clip
+    } else if (rabbitRef.current.position.z === rabbitMriPosition[2]) {
+      // play mri clip
+    } else if (rabbitRef.current.position.z === rabbitXrayPosition[2]) {
+      // play xray clip
+    } else {
+      // play welcome clip
+      rabbitWelcome.play().then(() => {
+        idleAnimation.stop()
+        waveAnimation.play()
+        waveAnimation.getMixer().addEventListener('finished', () => {
+          talkingAnimation.play()
+        })
+
+        rabbitWelcome.onended = () => {
+          talkingAnimation.stop()
+          // animate buttons here
+          buttonGroupRef.current.visible = true
+          idleAnimation.play()
+        }
+      })
+    }
   })
 
   useEffect(() => {
