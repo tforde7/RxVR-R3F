@@ -14,7 +14,6 @@ export default function RabbitCyan() {
   const XRAY_POSITION = [200, 0, -50]
   const SEAHORSE_POSITION = [64, 0, -36]
 
-  const [showButtons, setShowButtons] = useState(false)
   const rabbitcyan = useGLTF('/models/AnimalGuides/Rabbit Cyan.glb')
 
   const animations = useAnimations(rabbitcyan.animations, rabbitcyan.scene)
@@ -31,6 +30,7 @@ export default function RabbitCyan() {
   const mriButtonref = useRef()
   const xrayButtonref = useRef()
   const seahorseButtonref = useRef()
+  const buttonGroupRef = useRef()
 
   const teleport = useTeleportation()
 
@@ -38,7 +38,7 @@ export default function RabbitCyan() {
     if (event.target.inputSource.handedness === 'right') {
       return
     }
-    setShowButtons(false)
+    buttonGroupRef.current.visible = false
     teleport(SEAHORSE_POSITION)
   })
 
@@ -46,7 +46,7 @@ export default function RabbitCyan() {
     if (event.target.inputSource.handedness === 'right') {
       return
     }
-    setShowButtons(false)
+    buttonGroupRef.current.visible = false
     teleport(MRI_POSITION)
   })
 
@@ -54,7 +54,7 @@ export default function RabbitCyan() {
     if (event.target.inputSource.handedness === 'right') {
       return
     }
-    setShowButtons(false)
+    buttonGroupRef.current.visible = false
     teleport(XRAY_POSITION)
   })
 
@@ -72,7 +72,7 @@ export default function RabbitCyan() {
       rabbitWelcome.onended = () => {
         talkingAnimation.stop()
         // animate buttons here
-        setShowButtons(true)
+        buttonGroupRef.current.visible = true
         idleAnimation.play()
       }
     })
@@ -85,13 +85,11 @@ export default function RabbitCyan() {
   return (
     <>
       <primitive ref={rabbitRef} object={rabbitcyan.scene} scale={0.5} position={[0, 0, -3]}></primitive>
-      {showButtons && (
-        <group rotation-y={Math.PI} position={[0, 2.5, -3]}>
-          <FloatingButton ref={seahorseButtonref} height={0.5} width={1.1} position={[2, 0, 0]} text="Seahorse Ward"></FloatingButton>
-          <FloatingButton ref={mriButtonref} height={0.5} width={1.1} position={[0, 0, 0]} text="MRI Room"></FloatingButton>
-          <FloatingButton ref={xrayButtonref} height={0.5} width={1.1} position={[-2, 0, 0]} text="X-Ray Room"></FloatingButton>
-        </group>
-      )}
+      <group ref={buttonGroupRef} rotation-y={Math.PI} position={[0, 2.5, -3]} visible={false}>
+        <FloatingButton ref={seahorseButtonref} height={0.5} width={1.1} position={[2, 0, 0]} text="Seahorse Ward"></FloatingButton>
+        <FloatingButton ref={mriButtonref} height={0.5} width={1.1} position={[0, 0, 0]} text="MRI Room"></FloatingButton>
+        <FloatingButton ref={xrayButtonref} height={0.5} width={1.1} position={[-2, 0, 0]} text="X-Ray Room"></FloatingButton>
+      </group>
     </>
   )
 }
