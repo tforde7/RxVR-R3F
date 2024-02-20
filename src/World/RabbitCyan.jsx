@@ -34,6 +34,9 @@ export default function RabbitCyan() {
   const teleport = useTeleportation()
 
   useInteraction(seahorseButtonref, 'onSelect', (event) => {
+    if (event.target.inputSource.handedness === 'right') {
+      return
+    }
     teleport(SEAHORSE_POSITION)
   })
 
