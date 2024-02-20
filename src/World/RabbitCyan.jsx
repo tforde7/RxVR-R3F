@@ -41,7 +41,7 @@ export default function RabbitCyan() {
     }
     buttonGroupRef.current.visible = false
     teleport(SEAHORSE_POSITION)
-    const rabbitSeahorsePosition = [SEAHORSE_POSITION[0], SEAHORSE_POSITION[1], SEAHORSE_POSITION[2] + 3]
+    const rabbitSeahorsePosition = [SEAHORSE_POSITION[0], SEAHORSE_POSITION[1], SEAHORSE_POSITION[2] - 3]
     teleportObject(rabbitRef.current, rabbitSeahorsePosition)
   })
 
@@ -51,7 +51,7 @@ export default function RabbitCyan() {
     }
     buttonGroupRef.current.visible = false
     teleport(MRI_POSITION)
-    const rabbitMriPosition = [MRI_POSITION[0], MRI_POSITION[1], MRI_POSITION[2] + 3]
+    const rabbitMriPosition = [MRI_POSITION[0], MRI_POSITION[1], MRI_POSITION[2] - 3]
     teleportObject(rabbitRef.current, rabbitMriPosition)
   })
 
@@ -61,7 +61,7 @@ export default function RabbitCyan() {
     }
     buttonGroupRef.current.visible = false
     teleport(XRAY_POSITION)
-    const rabbitXrayPosition = [XRAY_POSITION[0], XRAY_POSITION[1], XRAY_POSITION[2] + 3]
+    const rabbitXrayPosition = [XRAY_POSITION[0], XRAY_POSITION[1], XRAY_POSITION[2] - 3]
     teleportObject(rabbitRef.current, rabbitXrayPosition)
   })
 
