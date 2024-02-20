@@ -1,6 +1,7 @@
 import { useAnimations, useGLTF } from '@react-three/drei'
 import { RigidBody } from '@react-three/rapier'
 import React from 'react'
+import { useRef } from 'react'
 
 export default function Doctor2() {
   const doctor = useGLTF('/models/doctor_-_sketchfab_weekly_-_13_mar23/scene.gltf')
@@ -28,10 +29,21 @@ export default function Doctor2() {
   const position = [25, 1.5, -12] // Example position
   const rotation = [0, -1.28, 0] // Example rotation (in radians)
 
+  const doctorHello = new Audio('/sounds/doctor-hello.mp3')
+
+  const doctorRef = useRef()
+
+  useInteraction(doctorRef, 'onSelect', (event) => {
+    if (event.target.inputSource.handedness === 'right') {
+      return
+    }
+    doctorHello.play()
+  })
+
   return (
     <>
       <RigidBody colliders="hull" type="fixed">
-        <primitive object={doctor.scene} scale={scale} position={position} rotation={rotation} />
+        <primitive ref={doctorRef} object={doctor.scene} scale={scale} position={position} rotation={rotation} />
       </RigidBody>
     </>
   )
